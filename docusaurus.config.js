@@ -45,11 +45,11 @@ const config = {
         },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/matanolabs/matano/tree/main/website/",
+          editUrl: "https://github.com/matanolabs/matano-website/tree/main/website/",
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/matanolabs/matano/tree/main/website/",
+          editUrl: "https://github.com/matanolabs/matano-website/tree/main/website/",
         },
         theme: {
           customCss: [

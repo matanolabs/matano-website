@@ -1,5 +1,5 @@
 .features {
-  @apply flex flex-col items-center pt-20;
+  @apply flex flex-col items-center mt-2 md:mt-8;
   width: 100%;
 }
 

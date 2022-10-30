@@ -27,13 +27,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "Store data in S3 object storage",
-    description: (
-      <>
-        Log data is always stored in highly optimized Parquet files in S3 object storage, for cost effective,
-        long term, durable storage.
-      </>
-    ),
+    title: "Detections as code",
+    description: <>Write Python detections to implement realtime alerting on your log data.</>,
   },
   {
     title: "Apache Iceberg Data lake",
@@ -45,16 +40,21 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: "Store data in S3 object storage",
+    description: (
+      <>
+        Log data is always stored in highly optimized Parquet files in S3 object storage, for cost effective,
+        long term, durable storage.
+      </>
+    ),
+  },
+  {
     title: "Serverless",
     description: (
       <>
         Matano is a fully serverless platform, designed for zero-ops and unlimited elastic horizontal scaling.
       </>
     ),
-  },
-  {
-    title: "Detections as code",
-    description: <>Write Python detections to implement realtime alerting on your log data.</>,
   },
 ];
 
@@ -66,7 +66,7 @@ function Feature({ title, description }: FeatureItem) {
       </div> */}
       <div className="text--center padding-horiz--md padding-vert--md">
         <h3 className="text-2xl leading-6">{title}</h3>
-        <p className="text-lg">{description}</p>
+        <p className="text-xl">{description}</p>
       </div>
     </div>
   );
@@ -76,7 +76,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container flex flex-col items-center">
-        <h2 className="!text-4xl text-center py-8 px-8">Why Matano?</h2>
+        <h2 className="!text-4xl font-[Lexend] text-center py-8 px-8">Why Matano?</h2>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

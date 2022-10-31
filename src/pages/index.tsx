@@ -157,79 +157,81 @@ export default function Home(): JSX.Element {
           </picture>
         </div>
 
-        <HomepageSection
-          mainHeader=" Matano lets you own your security data"
-          subHeader="And be free from vendor lock-in"
-          img={<img src={cover1} />}
-          isImgFirst
-        >
-          <p>
-            Cybersecurity vendors lock your data in proprietary formats that make it difficult to use outside
-            of their products.
-          </p>
+        <div className="flex flex-col gap-8 md:gap-y-24 mt-2 md:mt-8 mb-8 md:mb-16">
+          <HomepageSection
+            mainHeader=" Matano lets you own your security data"
+            subHeader="And be free from vendor lock-in"
+            img={<img src={cover1} />}
+            isImgFirst
+          >
+            <p>
+              Cybersecurity vendors lock your data in proprietary formats that make it difficult to use
+              outside of their products.
+            </p>
 
-          <p>
-            With Matano, all your data is in open format Apache Iceberg tables that can can be directly
-            queried from different tools (AWS Athena, Snowflake, etc.) without having to copy any data.
-          </p>
-        </HomepageSection>
+            <p>
+              With Matano, all your data is in open format Apache Iceberg tables that can can be directly
+              queried from different tools (AWS Athena, Snowflake, etc.) without having to copy any data.
+            </p>
+          </HomepageSection>
 
-        <HomepageSection
-          mainHeader="Write advanced detections as code"
-          subHeader="Correlate and alert on threats in realtime."
-          img={<img className="rounded-xl" src={cover2} />}
-        >
-          <p>
-            Matano gives you the complete flexibility of Python code to build high-fidelity detections that
-            capture threats in realtime.
-          </p>
+          <HomepageSection
+            mainHeader="Write advanced detections as code"
+            subHeader="Correlate and alert on threats in realtime."
+            img={<img className="rounded-xl" src={cover2} />}
+          >
+            <p>
+              Matano gives you the complete flexibility of Python code to build high-fidelity detections that
+              capture threats in realtime.
+            </p>
 
-          <p>
-            Build stateful alerts to assess entity-risk over time or combine signals using scheduled SQL
-            detections.
-          </p>
+            <p>
+              Build stateful alerts to assess entity-risk over time or combine signals using scheduled SQL
+              detections.
+            </p>
 
-          <p>
-            Alerting rules in Matano are designed to be tested, reviewed, and incrementally hardened,
-            resulting in a drastic reduction of false-positives compared to traditional SIEM.
-          </p>
-        </HomepageSection>
+            <p>
+              Alerting rules in Matano are designed to be tested, reviewed, and incrementally hardened,
+              resulting in a drastic reduction of false-positives compared to traditional SIEM.
+            </p>
+          </HomepageSection>
 
-        <HomepageSection
-          mainHeader="Enrich, transform, normalize"
-          subHeader="From unstructured logs to a powerful security data lake"
-          img={<img className="rounded-xl" src={cover3} />}
-        >
-          <p>
-            Matano allows for Vector Remap Language (VRL) scripting to easily normalize & enrich raw security
-            logs without maintaing any servers (goodbye Logstash).
-          </p>
-          <p>
-            Managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools using
-            pre-built parsers.
-          </p>
-          <p>
-            With native support for the Elastic Common Schema, Matano enables enhanced correlation and bulk
-            search for indicators across your security data lake.
-          </p>
-        </HomepageSection>
+          <HomepageSection
+            mainHeader="Enrich, transform, normalize"
+            subHeader="From unstructured logs to a powerful security data lake"
+            img={<img className="rounded-xl" src={cover3} />}
+          >
+            <p>
+              Matano allows for Vector Remap Language (VRL) scripting to easily normalize & enrich raw
+              security logs without maintaing any servers (goodbye Logstash).
+            </p>
+            <p>
+              Managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools
+              using pre-built parsers.
+            </p>
+            <p>
+              With native support for the Elastic Common Schema, Matano enables enhanced correlation and bulk
+              search for indicators across your security data lake.
+            </p>
+          </HomepageSection>
 
-        <HomepageSection
-          mainHeader="Built for scale 🦀🛡️"
-          subHeader="Eliminate gaps in your security program and analyze all your
+          <HomepageSection
+            mainHeader="Built for scale 🦀🛡️"
+            subHeader="Eliminate gaps in your security program and analyze all your
           data."
-        >
-          <p className="md:flex-1">
-            With Matano, you can confidently analyze and store all your data without worrying about a cost
-            prohibitive bill.
-          </p>
+          >
+            <p className="md:flex-1">
+              With Matano, you can confidently analyze and store all your data without worrying about a cost
+              prohibitive bill.
+            </p>
 
-          <p className="md:flex-1">
-            Matano uses a data lake architecture with the latest technologies in Big Data from Apache Arrow
-            and Iceberg to Rust, and is built on foundational, predictable cloud services like S3, Lambda, and
-            SQS.
-          </p>
-        </HomepageSection>
+            <p className="md:flex-1">
+              Matano uses a data lake architecture with the latest technologies in Big Data from Apache Arrow
+              and Iceberg to Rust, and is built on foundational, predictable cloud services like S3, Lambda,
+              and SQS.
+            </p>
+          </HomepageSection>
+        </div>
 
         <HomepageFeatures />
 
@@ -243,10 +245,10 @@ export default function Home(): JSX.Element {
 
 function HomepageSection({ mainHeader, subHeader, children, img, isImgFirst }: any) {
   const flexClasses = isImgFirst ? "flex-col-reverse lg:flex-row-reverse" : "flex-col lg:flex-row";
-  const contentClasses = clsx(flexClasses, "flex itemsstart gap-8");
+  const contentClasses = clsx(flexClasses, "flex items-start gap-8");
   return (
-    <section className="lg:self-start mb-8">
-      <div className="container flex flex-col">
+    <section className="">
+      <div className="mx-2 sm:mx-4 md:mx-12 flex flex-col">
         <div className="mx-5 md:mx-12">
           <div className="mb-4 md:mb-8">
             <h2 className="!text-3xl md:!text-5xl pt-8 font-[Lexend]">{mainHeader}</h2>

@@ -45,3 +45,7 @@ div[role="banner"] {
   // background-color: #ffffff;
   // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56.2' height='97' viewBox='0 0 200 345'%3E%3Cg fill='none' stroke='%23DBEAFE' stroke-width='10.9'%3E%3Cpolygon points='200 115 100 172.5 100 287.5 200 345 300 287.5 300 172.5 '/%3E%3Cpolygon points='0 115 -100 172.5 -100 287.5 0 345 100 287.5 100 172.5 '/%3E%3Cg fill='%23EFF6FF'%3E%3Cpolygon points='100 -57.5 0 0 0 115 100 172.5 200 115 200 0 '/%3E%3Cpolygon points='100 287.5 0 345 0 460 100 517.5 200 460 200 345 '/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
+.mtn-blog-sq-img {
+  @apply md:w-9/12;
+}

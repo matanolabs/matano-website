@@ -25,7 +25,7 @@ You can also use the standalone `matano generate:matano-dir` command to generate
 
 ### Matano configuration file (`matano.config.yml`)
 
-Use this file to specify matano configuration.
+Use this file to specify Matano configuration. To see all the fields you can specify here see [Matano configuration file reference](./reference/matano-configuration-file).
 
 ### Matano context file (`matano.context.json`)
 

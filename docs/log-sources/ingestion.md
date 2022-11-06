@@ -15,13 +15,13 @@ Matano creates a managed S3 bucket for you to use for S3 ingestion. You can use 
 
 To retrieve the value of the Matano sources bucket, use the `matano info` command. See [Retrieving resource values](../getting-started.md#retrieving-resource-values).
 
-When sending data to the Matano provided sources bucket, upload files to the `/data/<log_source_name>` prefix where `log_source_name` is the name of your log source that you specified in your `log_source.yml` file.
+When sending data to the Matano provided sources bucket, upload files to the `<log_source_name>` prefix where `log_source_name` is the name of your log source that you specified in your `log_source.yml` file.
 
 For example, to upload data for a log source named `serverlogs`, you would upload data to the following key prefixes:
 
 ```
-/data/serverlogs/d007cb0d-7c00-43aa-b9a9-f7cc37e780dc.json
-/data/serverlogs/80cd10db-7760-4e34-830d-b98342dd180a.json
+serverlogs/d007cb0d-7c00-43aa-b9a9-f7cc37e780dc.json
+serverlogs/80cd10db-7760-4e34-830d-b98342dd180a.json
 ```
 
 If you are getting started, don't have existing data, or need your raw data to be a specific location, prefer using the Matano provided sources bucket.
@@ -36,7 +36,7 @@ In your `log_source.yml`, specify the S3 Bucket and object prefix that your data
 ingest:
   s3_source:
     bucket_name: "my-org-logs-bucket"
-    key_prefix: "data/mypath"
+    key_prefix: "my_key/mypath"
 ```
 
 If you are bringing your own bucket, you need to ensure that you have correctly set up permissions on the bucket for Matano to be able to access it.

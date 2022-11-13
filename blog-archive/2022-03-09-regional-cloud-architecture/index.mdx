@@ -3,14 +3,14 @@ title: "How we build a fully regional cloud architecture on AWS"
 keywords: ["software", "cloud", "AWS", "regional"]
 authors: [samrose]
 tags: [engineering]
-description: How we've built a fully regional cloud infrastructure on AWS at Apptrail.
+description: How we've built a fully regional cloud infrastructure on AWS.
 ---
 
 import { Mermaid } from "mdx-mermaid/Mermaid";
 
 At least for me, building on the cloud gives often gives me unexpected joy. To think that I can deploy servers in Bahrain or Japan from my couch is still something I get excited about!
 
-At Apptrail, we run completely on the cloud, specifically AWS, and one of the main reasons is how easy it is to launch services in new geographical regions. We deploy our services to independent cloud regions and provide our customers with regional endpoints (e.g. `events.us-west-2.apptrail.com`).
+We run completely on the cloud, specifically AWS, and one of the main reasons is how easy it is to launch services in new geographical regions. We deploy our services to independent cloud regions and provide our customers with regional endpoints (e.g. `events.us-west-2.publicapi.com`).
 
 Here are some of our learnings from building a fully regional service on AWS.
 
@@ -56,7 +56,7 @@ The key difference between multi region and regionalized architectures is that i
 
 ### Choosing regions for a regional architecture
 
-When building a regionalized architecture, one needs to pick a list of geographical regions to support and a methodology to assign them. You're likely deployed on a cloud, so a simple decision is to choose your regions to correspond to cloud regions. This is [what we do at Apptrail](https://apptrail.com/docs/applications/guide/regions), for example. One can rename them, or just use the same names, which is what we do at Apptrail ourselves.
+When building a regionalized architecture, one needs to pick a list of geographical regions to support and a methodology to assign them. You're likely deployed on a cloud, so a simple decision is to choose your regions to correspond to cloud regions. This is what we do, for example. One can rename them, or just use the same names, which is what we do ourselves.
 
 However, a one-to-one mapping is not necessary. You can also come up with regions that correspond to multiple cloud regions. For example, a region structure could look as follows:
 
@@ -99,17 +99,17 @@ Infrastructure and deployment automation is key to being able to maintain consis
 
 ### Staged deployment using Waves
 
-We use a concept of _waves_ when deploying software at Apptrail. Going back to cellular architecture, a wave is essentially a set of cells to deploy to concurrently. For example, currently, our waves are:
+We use a concept of _waves_ when deploying software. Going back to cellular architecture, a wave is essentially a set of cells to deploy to concurrently. For example, currently, our waves are:
 
 <div className="cntr">
 
-|  Wave  |   Apptrail Regions   |
+|  Wave  |   Regions   |
 | :----: | :------------------: |
 | Wave 1 |      ap-south-1      |
 | Wave 2 |      eu-west-1       |
 | Wave 3 | us-west-2, us-east-1 |
 
-_Our current waves at Apptrail_
+_Our current waves_
 
 </div>
 
@@ -123,13 +123,13 @@ The CDK also comes with useful high level abstractions out of the box, so you do
 
 <div className="cntr">
 
-![](./apptrail-waves.png)
+![](./waves.png)
 
 _A pipeline deploying one of our regional services to one of our waves_
 
 </div>
 
-For example, we use [CDK Pipelines](https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications) for deploying all of our infrastructure at Apptrail. In CDK Pipelines, stages and _waves_ are supported natively so you can easily deploy cellular applications. At Apptrail, we've developed a standard _Pipeline_ construct that sets up our standard waves and makes creating a regionalized service conforming to Apptrail regions and waves very simple.
+For example, we use [CDK Pipelines](https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications) for deploying all of our infrastructure. In CDK Pipelines, stages and _waves_ are supported natively so you can easily deploy cellular applications. We've developed a standard _Pipeline_ construct that sets up our standard waves and makes creating a regionalized service conforming to regions and waves very simple.
 
 ## Other considerations around regional architectures
 
@@ -145,10 +145,10 @@ Regionalization inherently comes with some additional cost. However, when an app
 
 #### Global data
 
-A common consideration when evaluating a regionalized or multi region architecture is what to do with global data. There's no one answer here. Keeping in mind our earlier discussion on choosing components to regionalize and data planes & control planes, there are several ways we could deal with this. For example, we could keep global data in one control plane region, and our regionalized data plane services can depend on this control plane. This is what we use ourselves at Apptrail. However, this may or may not be acceptable. If latency is the primary motivation for regionalization, then this is less than ideal. There are several ways to deal with this, including DynamoDB Global Tables and database replication, that are beyond the scope of this article (see this [video](https://www.youtube.com/watch?v=2e29I3dA8o4) for some more information). On the other hand, if the main reason for regionalization is data residency, and our control plane only stores non-sensitive configuration, then this is a more fitting approach.
+A common consideration when evaluating a regionalized or multi region architecture is what to do with global data. There's no one answer here. Keeping in mind our earlier discussion on choosing components to regionalize and data planes & control planes, there are several ways we could deal with this. For example, we could keep global data in one control plane region, and our regionalized data plane services can depend on this control plane. This is what we use ourselves. However, this may or may not be acceptable. If latency is the primary motivation for regionalization, then this is less than ideal. There are several ways to deal with this, including DynamoDB Global Tables and database replication, that are beyond the scope of this article (see this [video](https://www.youtube.com/watch?v=2e29I3dA8o4) for some more information). On the other hand, if the main reason for regionalization is data residency, and our control plane only stores non-sensitive configuration, then this is a more fitting approach.
 
 ## Conclusion
 
-As it gets easier and easier to deploy to the cloud, and with increased concern about data sovereignty, regional architectures are becoming more common. This gave you an overview of how we easily maintain our regional services on AWS at Apptrail. You might not need regionalization for your next project, but I hope this was helpful and informative.
+As it gets easier and easier to deploy to the cloud, and with increased concern about data sovereignty, regional architectures are becoming more common. This gave you an overview of how we easily maintain our regional services on AWS. You might not need regionalization for your next project, but I hope this was helpful and informative.
 
 _What do you think of regionalization, do you use it in your applications? Feel free to reply._

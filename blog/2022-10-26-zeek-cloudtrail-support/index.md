@@ -2,12 +2,10 @@
 title: Managed CloudTrail and Zeek support
 authors: "samrose"
 keywords: ["cloudtrail", "aws", "zeek", "big data"]
+image: ./sg.png
 ---
 
-import sgImg from "./sg.png";
-
 <head>
-  <meta property="og:image" content={"https://matano.dev/" + sgImg} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@AhmedSamrose" />
 </head>

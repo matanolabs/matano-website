@@ -2,12 +2,12 @@
 title: Automated Iceberg table maintenance
 authors: "samrose"
 keywords: ["apache iceberg", "aws", "big data", "serverless"]
+image: ./sg.png
 ---
 
 import sgImg from "./sg.png";
 
 <head>
-  <meta property="og:image" content={"https://matano.dev" + sgImg} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content="@AhmedSamrose" />
 </head>

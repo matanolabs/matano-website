@@ -5,13 +5,13 @@ title: Installation
 
 Matano always runs in your AWS account. You use the Matano CLI to deploy Matano and manage your installation.
 
-See [Getting started](./getting-started.md) for more on deploying Matano.
+See [Deployment](./getting-started.md) for more on deploying Matano.
 
 ### Requirements
 
 - Docker: The Matano CLI requires Docker to be installed.
 
-## Prebuilt installer
+## Installing using the Prebuilt installer
 
 Matano provides [a nightly release](https://github.com/matanolabs/matano/releases/tag/nightly) with the latest prebuilt files to install the Matano CLI on GitHub. You can download and execute these files to install Matano.
 
@@ -23,7 +23,10 @@ chmod +x matano-linux-x64.sh
 sudo ./matano-linux-x64.sh
 ```
 
-### Customizing the installation
+<details><summary>
+
+### (Optional) Customizing the installation
+</summary><div>
 
 By default, the installer will install Matano in `/usr/local/matano-cli` and create a symlink in `/usr/local/bin`. Thus by default, the installer will require sudo permissions.
 
@@ -37,7 +40,7 @@ You can install without sudo if you specify directories that you already have wr
 
   The default value is `/usr/local/bin`.
 
-### (Optional) Verify the installation
+#### (Optional) Verify the installation
 
 The Matano CLI executables are cryptographically signed using PGP signatures. The PGP signatures can be used to verify the validity of the Matano CLI executable. Use the following steps to verify the signatures using the GnuPG tool.
 
@@ -118,6 +121,9 @@ curl -OL https://github.com/matanolabs/matano/releases/download/nightly/matano-l
 ```bash
 gpg --verify matano-linux-x64.sh.sig matano-linux-x64.sh
 ```
+
+</div>
+</details>
 
 ## Installing from source
 

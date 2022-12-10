@@ -18,6 +18,11 @@
   background-size: cover;
 }
 
+// remove dark mode on homepage (bad selector)
+.mtn-homepage a + div > button.clean-btn {
+  display: none;
+}
+
 .row .col {
   --ifm-spacing-horizontal: 2rem;
 }
@@ -33,11 +38,6 @@ div[role="banner"] {
     @apply underline hover:text-blue-600;
     color: unset;
   }
-}
-
-// remove dark mode on homepage (bad selector)
-a + div > button.clean-btn {
-  display: none;
 }
 
 .oil123 {

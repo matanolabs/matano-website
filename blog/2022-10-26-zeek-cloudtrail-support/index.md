@@ -63,9 +63,9 @@ We can also write Python detections that will run on realtime on our CloudTrail 
 ```python
 def detect(record):
   return (
-    record.get("event", {}).get("provider") == "ec2.amazonaws.com"
-    and record.get("event", {}).get("action") == "CreateInstanceExportTask"
-    and event.get("outcome", {}) == "failure"
+    record.deepget("event.provider") == "ec2.amazonaws.com"
+    and record.deepget("event.action") == "CreateInstanceExportTask"
+    and event.get("outcome") == "failure"
   )
 ```
 

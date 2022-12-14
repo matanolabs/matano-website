@@ -23,12 +23,12 @@ You can also directly store strings in the cache.
 
 ## Using the remote cache
 
-To use the remote cache in your detection, import the remote_cache and instantiate it with a namespace:
+To use the remote cache in your detection, import the remotecache and instantiate it with a namespace:
 
 ```python
-from detection import remote_cache
+from detection import remotecache
 
-user_ips = remote_cache("UserIp")
+user_ips = remotecache("UserIp")
 ```
 
 The remote cache implements `dict`-like methods, so in your Python code, you can treat it like a Python dictionary.
@@ -38,7 +38,7 @@ The remote cache implements `dict`-like methods, so in your Python code, you can
 You can specify a Time to Live (TTL), in seconds, for cache entries to expire when instantiating the cache:
 
 ```python
-user_ips = remote_cache("UserIp", ttl=86400)
+user_ips = remotecache("UserIp", ttl=86400)
 ```
 
 If you don't specify a TTL, a default TTL of 3600 seconds (1 hour) is used.
@@ -46,14 +46,14 @@ If you don't specify a TTL, a default TTL of 3600 seconds (1 hour) is used.
 ### Adding a value to the cache
 
 ```python
-users_ips = remote_cache("UserIp")
+users_ips = remotecache("UserIp")
 users_ips["john@example.com"] = set("1.1.1.1")
 ```
 
 ### Getting a value from the cache
 
 ```python
-users_ips = remote_cache("UserIp")
+users_ips = remotecache("UserIp")
 user_ip = users_ips["john@example.com"]
 user_ip = users_ips.get("john@example.com")
 ```
@@ -61,7 +61,7 @@ user_ip = users_ips.get("john@example.com")
 ### Removing a value from the cache
 
 ```python
-users_ips = remote_cache("UserIp")
+users_ips = remotecache("UserIp")
 del users_ips["john@example.com"]
 ```
 
@@ -70,7 +70,7 @@ del users_ips["john@example.com"]
 The remote cache provides methods to atomically increment or decrement an integer value in a single operation.
 
 ```python
-user_failure_count = remote_cache("UserFailure")
+user_failure_count = remotecache("UserFailure")
 
 user_failure_count.increment_counter("john@example.com")
 user_failure_count.increment_counter("john@example.com", 10) # optional value to increment by
@@ -84,7 +84,7 @@ user_failure_count.decrement_counter("john@example.com", 10) # optional value to
 The remote cache provides methods to atomically add or remove an item from a string set in a single operation. You can append or remove a single string by passing a string or multiple strings by passing an iterable (e.g `list`, `set`, etc.) of strings.
 
 ```python
-users_ips = remote_cache("UserIp")
+users_ips = remotecache("UserIp")
 
 # provide a string or iterable
 users_ips.add_to_string_set("john@example.com", "1.1.1.1")
@@ -103,16 +103,16 @@ users_ips.remove_from_string_set("john@example.com", {"1.1.1.1", "8.8.8.8"})
 The following is an example detection using the remote cache with a counter.
 
 ```python
-from detection import remote_cache
+from detection import remotecache
 
 # an hourly cache
-errors_count = remote_cache("access_denied", ttl=3600)
+errors_count = remotecache("access_denied", ttl=3600)
 failure_threshold = 15
 
 def detect(record):
-    if record.get('aws', {}).get("cloudtrail", {}).get("error_code") == 'AccessDenied':
+    if record.deepget("aws.cloudtrail.error_code") == "AccessDenied":
         # A unique key on the user name
-        key = record.get("user", {}).get("name")
+        key = record.deepget("user.name")
 
         # Increment the counter and alert if exceeds a threshold
         error_count = errors_count.increment_counter(key)
@@ -124,20 +124,24 @@ def detect(record):
 The following is an example detection using the remote cache with a string set.
 
 ```python
-from detection import remote_cache
+from detection import remotecache
 
-# a weekly cache
-users_ips = remote_cache("user_ip", ttl=86400 * 7)
+# a weekly cache of user -> ip[]
+users_ips = remotecache("user_ip", ttl=86400 * 7)
 
 def detect(record):
-    if record.get('event', {}).get('action') == 'ConsoleLogin' and
-        record.get('event', {}).get('outcome', {}) == 'success':
+    if (
+      record.deepget("event.action") == "ConsoleLogin" and
+      record.deepget("event.outcome") == "success"
+    ):
         # A unique key on the user name
-        key = record.get("user", {}).get("name")
+        user = record.deepget("user.name")
+        record_ip = record.deepget("source.ip")
 
-        # Alert on new IP
-        user_ips = users_ips.add_to_string_set(key)
-        if len(user_ips) > 1:
-            del users_ips[key]
+        prev_ips = users_ips[user]
+        curr_ips = users_ips.add_to_string_set(user, record_ip)
+        # Alert on new IPs
+        new_ips = curr_ips - prev_ips
+        if curr_ips and new_ips:
             return True
 ```

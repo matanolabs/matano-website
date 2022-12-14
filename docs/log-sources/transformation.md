@@ -13,12 +13,50 @@ If you're using a [Matano managed log source](./managed-log-sources/index.mdx), 
 
 To apply a transformation to your log source, specify a VRL expression to transform your data as a string in the `transform` key in your `log_source.yml` file.
 
+### Example: parsing JSON
+
+Let's have a look at a simple example. Imagine that you're working with
+HTTP log events that look like this:
+
+```json
+{
+  "line":"{\"status\":200,\"srcIpAddress\":\"1.1.1.1\",\"message\":\"SUCCESS\",\"username\":\"ub40fan4life\"}"
+}
+```
+
+You want to apply these changes to each event:
+
+- Parse the raw `line` string into JSON, and explode the fields to the top level
+- Rename `srcIpAddress` to the `source.ip` ECS field
+- Remove the `username` field
+- Convert the `message` to lowercase
+
+Adding this VRL program to your log source as a `transform` step would accomplish all of that:
+
+###### log_source.yml
 ```yml
 transform: |
-  _date, err = to_timestamp(.json.eventTime)
-  if err == null {
-      .ts = to_unix_timestamp(_date, "milliseconds")
+  . = object!(parse_json!(string!(.line)))
+  .source.ip = del(.srcIpAddress)
+  del(.username)
+  .message = downcase(string!(.message))
+
+schema:
+  ecs_field_names:
+  - source.ip
+  - http.status
+```
+
+The resulting event 🎉:
+
+```json
+{
+  "message": "success",
+  "status": 200,
+  "source": {
+    "ip": "1.1.1.1"
   }
+}
 ```
 
 ### Writing transformation VRL expressions

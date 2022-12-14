@@ -75,6 +75,7 @@ To configure multiple tables from a log source, create a `tables/` subdirectory 
 my-matano-dir/
 └── log_sources/
     └── aws_cloudtrail/
+        └── log_source.yml
         └── tables/
             ├── default.yml
             └── digest.yml
@@ -105,7 +106,7 @@ transform: |
   }
 ```
 
-#### Sharing log
+#### Shared log configuration fields 
 
 Table level configurations 'inherit' from log source level configurations defined in the corresponding `log_source.yml` and both log source level and table level configurations will be merged. You can use this to share properties and logic common to all tables within a log source while applying custom properties to each table.
 

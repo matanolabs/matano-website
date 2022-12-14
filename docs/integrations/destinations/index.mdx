@@ -1,0 +1,92 @@
+---
+title: Alert destinations
+---
+
+import DocCardList from "@theme/DocCardList";
+
+
+Matano integrates with external systems to deliver alerts. A detection can be configured to route alerts to one or multiple destinations based on a static configuration or dynamically based on the content of the triggering event.
+
+For example, you may choose to send all low severity alerts to Slack while all high severity alerts should both create a ticket in PagerDuty as well as alert in Slack.
+
+Each Matano alert destinations is created and managed using a configuration file under the `integrations/destinations/` folder in your Matano directory.
+
+### Onboarding alert destinations
+
+Each alert destination is given a unique name (e.g my_slack_team) and is created by adding a configuration file under the `integrations/destinations/` subfolder in your Matano directory.
+
+The alert destinations subfolder in has the following structure:
+
+```
+my-matano-directory
+├── integrations
+│   └── destinations
+│       ├── my_slack_team.yml
+│       ├── other_slack_team.yml
+│       ├── jira_main.yml
+│       └── pagerduty_main.yml
+```
+
+For details on what to include in a configuration file to setup and onboard a specific destination (e.g. a Slack channel), see [Supported destinations](#supported-destinations) and follow the corresponding directions for your destination type.
+
+### Default routing order
+
+The destination list for an alert will be resolved according to following order of precedence, where the first returned non-empty value will be used as the destination list: 
+
+1) **Dynamic destinations() list**
+- The highest precedence is taken by the destination list returned by a call to the optional `destinations()` function in a detection (`detect.py`). For example: 
+
+```python
+def destinations(r):
+    return [
+        "mgmt_slack_team"
+        if "Management" in r.deepget("event.action")
+        else "default_slack_team"
+    ]
+```
+
+1) **Static destinations list**
+- The second precedence is taken by a statically defined destinations list in a detection configuration file (`detection.yml`). For example:
+
+```yml
+...
+tables:
+  - aws_cloudtrail
+alert:
+  severity: medium
+  threshold: 5
+  destinations:
+    - slack_my_team
+    - jira_main
+```
+
+3) **Dynamic severity()**
+- Next if a severity is returned by a call to the optional `severity()` function in a detection (`detect.py`), that will be used to route the alert to the destination(s) that best corresponds to the alert (e.g. low -> Slack, critical -> pagerduty). For example: 
+
+```python
+def severity(r):
+    return (
+        "medium"
+        if "admin" in r.deepget("event.category")
+        else "low"
+    )
+```
+
+4) **Static severity**
+- The second precedence is taken by a statically defined severity in a detection configuration file (`detection.yml`). For example:
+
+- Lastly, if a statically defined severity is present in the detection configuration file, that will be used to route the alert to the destination(s) that best corresponds to the alert (e.g. low -> Slack, critical -> pagerduty). For example: 
+
+```yml
+...
+tables:
+  - aws_cloudtrail
+alert:
+  severity: high
+```
+
+## Supported destinations
+
+The following are currently supported Matano alert destinations. Click through to view specific documentation for each destination.
+
+<DocCardList />

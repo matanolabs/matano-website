@@ -91,8 +91,8 @@ from fnmatch import fnmatch
 
 def detect(record):
     return (
-        record.get("event", {}).get("provider") == "ec2.amazonaws.com"
-        and record.get("event", {}).get("action") == "DisableEbsEncryptionByDefault"
+        record.deepget("event.provider") == "ec2.amazonaws.com"
+        and record.deepget("event.action") == "DisableEbsEncryptionByDefault"
     )
 ```
 

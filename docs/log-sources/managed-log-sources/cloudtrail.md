@@ -46,7 +46,7 @@ The AWS CloudTrail managed log source supports the following tables:
 - insights
   - CloudTrail insights logs are processed into a Matano table.
 
-<!-- 
+<!--
 **CloudTrail Logs:** A table is created for actual CloudTrail logs.
 
 **CloudTrail Digest:** Your CloudTrail digest files are transformed into a separate Matano table.
@@ -72,6 +72,6 @@ For a log source named `aws_cloudtrail`, a file under the path `/AWSLogs/2494634
 
 CloudTrail data is normalized to ECS fields. Custom fields are normalized into the `aws` field. You can view the [complete mapping][1] to see the full schema.
 
-[1]: https://github.com/matanolabs/matano/blob/main/data/managed/aws_cloudtrail/log_source.yml
+[1]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/aws_cloudtrail/log_source.yml
 
 

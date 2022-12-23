@@ -139,4 +139,4 @@ For a log source named `zeek`, a file under the path `zeek/afe3c55a-8b05-4ac7-be
 
 Zeek data is normalized to ECS fields. You can view the [complete mappings][1] to see the full schemas.
 
-[1]: https://github.com/matanolabs/matano/blob/main/data/managed/zeek/log_source.yml
+[1]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/zeek/log_source.yml

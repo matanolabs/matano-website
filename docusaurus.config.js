@@ -4,6 +4,14 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+function ldJson(obj) {
+  return {
+    tagName: "script",
+    attributes: {type: "application/ld+json"},
+    innerHTML: JSON.stringify(obj),
+  }
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Matano",
@@ -60,7 +68,14 @@ const config = {
       }),
     ],
   ],
-
+  headTags: [
+    ldJson({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://www.matano.dev",
+      "logo": "https://www.matano.dev/img/matano_square.png"
+    }),
+  ],
   plugins: [
     "docusaurus-plugin-sass",
     async function tailwindPlugin(context, options) {

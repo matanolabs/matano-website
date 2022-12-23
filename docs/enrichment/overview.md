@@ -4,7 +4,7 @@ sidebar_label: Overview
 sidebar_position: 1
 ---
 
-You can use *enrichment tables* to enrich your data and alerts inside Matano. Enrichment tables let you incorporate external, custom data sources and threat intelligence data into your data, detections, and alerting. For example, you can use an enrichment table of user account data to map the user ID in log data to an entry in the enrichment table, and retrieve other attributes of that user. You can also use enrichment tables to ingest threat intelligence data, including Indicators of Compromise (IoCs), from external feeds and sources.
+You can use *enrichment tables* to enrich your data and alerts inside Matano. Enrichment tables let you incorporate external, custom data sources and threat intelligence data into your data, detections, and alerting. For example, you can use an enrichment table of user account data to map the user ID in log data to an entry in the enrichment table, and retrieve other attributes of that user. You can also use enrichment tables to ingest and use threat intelligence data, including Indicators of Compromise (IoCs), from external feeds and sources.
 
 In Matano, all enrichment tables are Apache Iceberg tables.
 

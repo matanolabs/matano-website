@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import MatanoSquareLogo from '../../../src/assets/matano_square.png';
 
+You can use the Matano Slack alerting integration to deliver alerts from your detections to your Slack channels.
+
 ### Example
 
 ![](../../../src/assets/matano_slack_alert.png)
@@ -36,9 +38,9 @@ properties:
 
 ### 2) Creating a Slack App for Matano Alerts
 
-1) **[Login to Slack](https://slack.com/signin)** using an admin account. 
+1) **[Login to Slack](https://slack.com/signin)** using an admin account.
 
-2) Under the **"[Your Apps](https://slack.com/signin)"** page in Slack click **"Create New App"**. 
+2) Under the **"[Your Apps](https://slack.com/signin)"** page in Slack click **"Create New App"**.
 
 3) When prompted with the **"Create an app"** dialog, select the option **"From an app manifest"**
 
@@ -93,7 +95,7 @@ If your [Slack plan](https://app.slack.com/plans) is Enterprise Grid, please see
 
 ### Slack Bot - Install to your Workspace
 
-1) On the **"Basic Information"** page in Slack click **"Install to Workspace"**. 
+1) On the **"Basic Information"** page in Slack click **"Install to Workspace"**.
 
 2) Click **Allow** to authorize access to your new Matano Slack app, once redirected to the OAuth authorization page.
 
@@ -104,7 +106,7 @@ If your [Slack plan](https://app.slack.com/plans) is Enterprise Grid, please see
 
 ### Slack Bot - Install to Enterprise Grid
 
-1) On the **"Settings > Basic Information"** page in Slack go to the **Manage Distribution** header and click **"Distribute App"**. 
+1) On the **"Settings > Basic Information"** page in Slack go to the **Manage Distribution** header and click **"Distribute App"**.
 
 2) Under **Enable Org-Wide App Installation** click **"Opt into Org Level Apps"**.
 

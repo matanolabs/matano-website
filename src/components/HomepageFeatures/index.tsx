@@ -13,7 +13,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Matano lets you collect log data from sources using S3 or SQS based ingestion, and comes out of the
-        box with sources like CloudTrail, Zeek, and more.
+        box with sources like CloudTrail, Zeek, Suricata and more.
       </>
     ),
   },

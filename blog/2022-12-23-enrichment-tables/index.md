@@ -89,7 +89,7 @@ def detect(r):
         and r.deepget("event.outcome") == "failure"
     )
 
-def contextualize(r):
+def alert_context(r):
     known_ip = known_ip_info.get(r.deepget("source.ip"))
     r.is_known_ip = known_ip is not None
 

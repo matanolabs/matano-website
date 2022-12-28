@@ -36,6 +36,8 @@ my-matano-dir/
 name: "fdr"
 ```
 
+For a complete reference on configuring log sources, including extending the table schema, see [_Log source configuration_](../../configuration.md).
+
 ## Tables
 
 The Crowdstrike managed log source supports the following tables:

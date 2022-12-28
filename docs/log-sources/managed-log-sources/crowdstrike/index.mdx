@@ -1,0 +1,18 @@
+---
+title: Crowdstrike
+sidebar_position: 12
+---
+
+import DocCardList from "@theme/DocCardList";
+
+This integration is for [CrowdStrike](https://www.crowdstrike.com/resources/?cs_query=type=5) products. It includes the
+following datasets for receiving logs:
+
+- `falcon` dataset: consists of endpoint data and Falcon platform audit data forwarded from [Falcon SIEM Connector](https://www.crowdstrike.com/blog/tech-center/integrate-with-your-siem/).
+- `crowdstrike / fdr` dataset: consists of logs forwarded using the [Falcon Data Replicator](https://github.com/CrowdStrike/FDR) (data) & the enrichment tables that are synced through the replicator (e.g. aidmaster, userinfo, etc.) 
+
+## Supported managed Crowdstrike log sources
+
+The following are currently supported Matano managed log sources for Crowdstrike. Click through to view specific documentation for each log source.
+
+<DocCardList />

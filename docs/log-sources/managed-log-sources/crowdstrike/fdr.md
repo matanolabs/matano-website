@@ -1,7 +1,7 @@
 ---
 title: Crowdstrike Falcon Data Replicator
 sidebar_label: Falcon Data Replicator
-sidebar_position: 11
+sidebar_position: 15
 ---
 
 The Crowdstrike managed log source lets you ingest your Crowdstrike FDR logs (data) directly into Matano and synchronize enrichment tables supported by the replicator (e.g. appinfo, aidmaster, etc.)

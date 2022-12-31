@@ -1,5 +1,6 @@
 ---
 title: AWS CloudTrail
+sidebar_position: 1
 ---
 
 The CloudTrail Matano managed log source lets you ingest your AWS CloudTrail logs directly into Matano.

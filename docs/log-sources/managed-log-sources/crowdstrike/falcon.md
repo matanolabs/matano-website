@@ -1,7 +1,7 @@
 ---
 title: Crowdstrike Falcon
 sidebar_label: Falcon
-sidebar_position: 10
+sidebar_position: 14
 ---
 
 The Crowdstrike Falcon Matano managed log source lets you ingest your Crowdstrike Falcon logs directly into Matano.
@@ -19,7 +19,7 @@ managed:
   type: "CROWDSTRIKE_FALCON"
 ```
 
-For example, if you want to ingest Crowdstrike Falcon logs (default table) into a log source named `crowdstrike_falcon` you should structure you subdirectory as follows:
+For example, if you want to ingest Crowdstrike Falcon logs (default table) into a log source named `crowdstrike_falcon` you should structure your subdirectory as follows:
 
 ```
 my-matano-dir/

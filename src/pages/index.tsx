@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Head from "@docusaurus/Head";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { useColorMode } from '@docusaurus/theme-common';
 import Layout from "@theme/Layout";
 import CodeBlock from "@theme/CodeBlock";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
@@ -135,10 +136,18 @@ export function CtaFooter() {
   );
 }
 
+function LightTheme({children}: any) {
+  const { setColorMode } = useColorMode();
+  useEffect(() => {
+    setColorMode('light');
+  }, []);
+  return <>{children}</>;
+}
+
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout description="Serverless, high scale, low cost, zero-ops security log analytics in your AWS account. Ingest petabytes of security data and write Python detections as code.">
+      <LightTheme>
       <Head>
         <html className="mtn-homepage" />
         <title>Matano | Open source security lake platform for AWS</title>
@@ -239,6 +248,7 @@ export default function Home(): JSX.Element {
           <CtaFooter />
         </section>
       </main>
+      </LightTheme>
     </Layout>
   );
 }

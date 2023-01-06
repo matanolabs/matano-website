@@ -146,7 +146,7 @@ function LightTheme({children}: any) {
 
 export default function Home(): JSX.Element {
   return (
-    <Layout description="Serverless, high scale, low cost, zero-ops security log analytics in your AWS account. Ingest petabytes of security data and write Python detections as code.">
+    <Layout description="Serverless, high scale, low cost SIEM alternative in your AWS account. Ingest petabytes of security data and write Python detections as code.">
       <LightTheme>
       <Head>
         <html className="mtn-homepage" />

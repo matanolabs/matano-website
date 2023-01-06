@@ -212,7 +212,7 @@ export default function Home(): JSX.Element {
           >
             <p>
               Matano allows for Vector Remap Language (VRL) scripting to easily normalize & enrich raw
-              security logs without maintaing any servers (goodbye Logstash).
+              security logs without maintaining any servers (goodbye Logstash).
             </p>
             <p>
               Managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools

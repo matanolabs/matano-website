@@ -7,7 +7,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 import Layout from "@theme/Layout";
 import CodeBlock from "@theme/CodeBlock";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import coverPng from "@site/src/assets/default_sq.png";
+import coverPng from "@site/src/assets/matano-cover-3x.png";
 import diagramPng from "@site/src/assets/diagram.png";
 import diagramWebp from "@site/src/assets/diagram.webp";
 import cover1 from "@site/src/assets/main1.png";

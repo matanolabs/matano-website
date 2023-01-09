@@ -191,15 +191,15 @@ const config = {
             items: [
               {
                 label: "Open source Elastic alternative",
-                href: "#",
+                href: "/alternative-to/elastic",
               },
               {
                 label: "Open source Panther alternative",
-                href: "#",
+                href: "/alternative-to/panther",
               },
               {
                 label: "Open source SIEM alternative",
-                href: "#",
+                href: "/alternative-to/siem",
               },
             ],
           },

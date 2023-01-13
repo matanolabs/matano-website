@@ -11,12 +11,14 @@ To create an enrichment table, use the `enrichment` subdirectory inside your Mat
 ```
 ├── enrichment
 │   └── user_info
-│       └── enrichment_table.yml
+│       └── enrichment.yml
 ```
 
-Inside the enrichment table subdirectory, create a file named `enrichment_table.yml`. The file has the following structure:
+Inside the enrichment table subdirectory, create a file named `enrichment.yml`. The file has the following structure:
 
 ```yml
+# enrichment/user_info/enrichment.yml
+
 name: "user_info"
 
 enrichment_type: "dynamic"
@@ -24,7 +26,7 @@ write_mode: "append" # only for dynamic tables
 
 # Iceberg schema (same as log sources)
 schema:
-  primary_key: user_id
+  primary_key: user_id # for merge write_mode
   fields:
     - name: name
       type: string
@@ -39,7 +41,7 @@ To specify the data for a static enrichment table, create a data file in the roo
 ```
 ├── enrichment
 │   └── user_info
-│       └── enrichment_table.yml
+│       └── enrichment.yml
 │       └── data.json
 ```
 

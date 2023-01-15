@@ -41,6 +41,16 @@ ingest:
 
 If you are bringing your own bucket, you need to ensure that you have correctly set up permissions on the bucket for Matano to be able to access it.
 
+#### Using a bucket with KMS encryption
+
+To allow Matano to ingest data from a bucket with KMS encryption, in addition to setting the resource based policy, add a tag on your KMS Key as follows:
+
+```
+matano:trusted=true
+```
+
+This will allow the Matano system identity based policy to be able to decrypt ingestion data.
+
 ## Expanding records
 
 When you send data to Matano, you need to communicate how Matano should split the data into individual records. Matano assumes your data is line delimited by default so if you are using a line delimited format like JSON Lines or CSV, Matano will automatically split your data and you do not need to provide any additional configuration.

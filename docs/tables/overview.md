@@ -43,4 +43,4 @@ See [Updating Iceberg table data](https://docs.aws.amazon.com/athena/latest/ug/q
 
 ## Notes
 
-Matano tables are stored in AWS Glue database named **matano**, with the Iceberg table name as the table name specified as per your log source configuration.
+Matano tables are stored in an AWS Glue database named **matano**, with the Iceberg table name as the table name specified as per your log source configuration.

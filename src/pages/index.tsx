@@ -162,7 +162,7 @@ export default function Home(): JSX.Element {
           <picture>
             <source type="image/webp" srcSet={diagramWebp} />
             <source type="image/png" srcSet={diagramPng} />
-            <img className="rounded-xl sm:rounded-2xl" src={diagramPng} />
+            <img alt="Architecture diagram showing components of Matano" className="rounded-xl sm:rounded-2xl" src={diagramPng} />
           </picture>
         </div>
 
@@ -170,7 +170,7 @@ export default function Home(): JSX.Element {
           <HomepageSection
             mainHeader=" Matano lets you own your security data"
             subHeader="And be free from vendor lock-in"
-            img={<img src={cover1} />}
+            img={<img src={cover1} alt="Query data in Matano from query engines like Snowflake, Athena, BigQuery, Spark, and Trino" />}
             isImgFirst
           >
             <p>
@@ -187,7 +187,7 @@ export default function Home(): JSX.Element {
           <HomepageSection
             mainHeader="Write advanced detections as code"
             subHeader="Correlate and alert on threats in realtime."
-            img={<img className="rounded-xl" src={cover2} />}
+            img={<img className="rounded-xl" src={cover2} alt="An example Matano Python detection on Zeek data checking for a Windows service changed remotely" />}
           >
             <p>
               Matano gives you the complete flexibility of Python code to build high-fidelity detections that
@@ -208,7 +208,7 @@ export default function Home(): JSX.Element {
           <HomepageSection
             mainHeader="Enrich, transform, normalize"
             subHeader="From unstructured logs to a powerful security data lake"
-            img={<img className="rounded-xl" src={cover3} />}
+            img={<img className="rounded-xl" src={cover3} alt="An example Matano log transformation script normalizing Cloudtrail logs using Vector Remap language" />}
           >
             <p>
               Matano allows for Vector Remap Language (VRL) scripting to easily normalize & enrich raw

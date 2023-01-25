@@ -14,10 +14,6 @@ import cover1 from "@site/src/assets/main1.png";
 import cover2 from "@site/src/assets/main2.png";
 import cover3 from "@site/src/assets/main3.png";
 
-const YCEmbed = () => {
-  return <img src='https://www.ycombinator.com/launches/Hl0-matano-open-source-siem-alternative-for-aws/upvote_embed.svg' alt='Launch YC: Matano - Open source SIEM alternative for AWS'/>
-}
-
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -69,9 +65,6 @@ function HomepageHeader() {
               ></path>
             </svg>
             View GitHub
-          </a>
-          <a className="inline-flex self-center lg:self-start" href='https://www.ycombinator.com/launches/Hl0-matano-open-source-siem-alternative-for-aws' target="_blank">
-            <YCEmbed />
           </a>
         </div>
       </div>
@@ -169,7 +162,7 @@ export default function Home(): JSX.Element {
           <picture>
             <source type="image/webp" srcSet={diagramWebp} />
             <source type="image/png" srcSet={diagramPng} />
-            <img className="rounded-xl sm:rounded-2xl" src={diagramPng} loading="lazy" />
+            <img className="rounded-xl sm:rounded-2xl" src={diagramPng} />
           </picture>
         </div>
 

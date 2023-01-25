@@ -1,4 +1,9 @@
 import { AltYes, AltNo, AltMeh } from "@site/src/components/emoji-alt"
+import coverPng from "@site/src/assets/matano-cover-3x.png";
+
+<head>
+    <meta property="og:image" content={coverPng} />
+</head>
 
 # Open source Panther Alternative
 

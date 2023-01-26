@@ -9,6 +9,7 @@ title: Matano CLI reference
 <!-- commands -->
 * [`matano autocomplete [SHELL]`](#matano-autocomplete-shell)
 * [`matano deploy`](#matano-deploy)
+* [`matano destroy`](#matano-destroy)
 * [`matano diff`](#matano-diff)
 * [`matano generate:matano-dir DIRECTORY-NAME`](#matano-generatematano-dir-directory-name)
 * [`matano help [COMMAND]`](#matano-help-command)
@@ -70,6 +71,34 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/deploy.ts](https://github.com/matanolabs/matano/blob/main/cli/src/commands/deploy.ts)_
+
+## `matano destroy`
+
+Deletes and cleans up all resources that are a part of your Matano deployment.
+
+```
+USAGE
+  $ matano destroy [--debug] [-p <value>] [--user-directory <value>] [--output csv|json|yaml |  | ]
+
+FLAGS
+  -p, --profile=<value>     AWS Profile to use for credentials.
+  --debug                   View debug information.
+  --output=<option>         output in a more machine friendly format
+                            <options: csv|json|yaml>
+  --user-directory=<value>  Matano user directory to use.
+
+DESCRIPTION
+  Deletes and cleans up all resources that are a part of your Matano deployment.
+
+EXAMPLES
+  $ matano destroy
+
+  $ matano destroy --profile prod
+
+  $ matano destroy --output json
+```
+
+_See code: [dist/commands/destroy.ts](https://github.com/matanolabs/matano/blob/main/cli/src/commands/destroy.ts)_
 
 ## `matano diff`
 

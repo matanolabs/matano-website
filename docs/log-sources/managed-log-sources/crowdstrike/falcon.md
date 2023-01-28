@@ -1,7 +1,7 @@
 ---
 title: Crowdstrike Falcon
 sidebar_label: Falcon
-sidebar_position: 14
+sidebar_position: 1
 ---
 
 The Crowdstrike Falcon Matano managed log source lets you ingest your Crowdstrike Falcon logs directly into Matano.

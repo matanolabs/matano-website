@@ -1,6 +1,6 @@
 ---
 title: Suricata
-sidebar_position: 7
+sidebar_position: 9
 ---
 
 The Suricata Matano managed log source lets you ingest your Suricata IDS/IPS/NSM logs. It parses logs that are in the [Suricata Eve JSON](https://suricata.readthedocs.io/en/latest/output/eve/eve-json-format.html) format.

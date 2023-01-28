@@ -144,4 +144,4 @@ def detect(record):
 
 ## Getting started
 
-You can start using the CloudTrail and Zeek managed log sources today. Follow the [steps](/docs/getting-started) to get started and take a look at the [CloudTrail](/docs/log-sources/managed-log-sources/cloudtrail) and [Zeek](/docs/log-sources/managed-log-sources/cloudtrail) documentation.
+You can start using the CloudTrail and Zeek managed log sources today. Follow the [steps](/docs/getting-started) to get started and take a look at the [CloudTrail](/docs/log-sources/managed-log-sources/aws/cloudtrail) and [Zeek](/docs/log-sources/managed-log-sources/aws/cloudtrail) documentation.

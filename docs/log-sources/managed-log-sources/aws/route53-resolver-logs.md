@@ -1,7 +1,7 @@
 ---
 title: AWS Route53 Resolver Logs
 sidebar_label: AWS Route53
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 The AWS Route53 Resolver Logs Matano managed log source lets you ingest DNS logs for queries & responses from: 
@@ -33,7 +33,7 @@ my-matano-dir/
         └── log_source.yml
 ```
 
-For a complete reference on configuring log sources, including extending the table schema, see [_Log source configuration_](../configuration.md).
+For a complete reference on configuring log sources, including extending the table schema, see [_Log source configuration_](../../configuration.md).
 
 ## Tables
 

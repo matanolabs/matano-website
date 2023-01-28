@@ -1,10 +1,10 @@
 ---
-title: Amazon S3 Server Access logs
-sidebar_label: Amazon S3 Access Logs
+title: Amazon S3 Server Access Logs
+sidebar_label: Amazon S3 Access
 sidebar_position: 2
 ---
 
-The Amazon S3 Server Access logs Matano managed log source lets you ingest your S3 server access logs directly into Matano.
+The Amazon S3 Server Access Logs Matano managed log source lets you ingest your S3 server access logs directly into Matano.
 
 Amazon S3 server access logs contain detailed records for the requests that are made to a bucket.
 

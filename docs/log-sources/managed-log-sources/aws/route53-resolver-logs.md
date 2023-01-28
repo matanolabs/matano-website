@@ -1,7 +1,7 @@
 ---
 title: AWS Route53 Resolver Logs
-sidebar_label: AWS Route53
-sidebar_position: 6
+sidebar_label: Route53
+sidebar_position: 5
 ---
 
 The AWS Route53 Resolver Logs Matano managed log source lets you ingest DNS logs for queries & responses from: 

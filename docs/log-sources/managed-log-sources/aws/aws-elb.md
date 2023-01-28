@@ -1,7 +1,7 @@
 ---
 title: AWS Elastic Load Balancer (ELB) logs
 sidebar_label: AWS ELB
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 The AWS Elastic Load Balancer (ELB) Matano managed log source lets you ingest your AWS ELB access logs directly into Matano.

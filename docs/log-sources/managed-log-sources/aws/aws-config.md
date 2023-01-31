@@ -1,6 +1,6 @@
 ---
 title: AWS Config
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 The AWS Config managed log source lets you ingest your AWS Config configuration history data directly into Matano.

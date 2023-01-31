@@ -1,6 +1,6 @@
 ---
 title: Amazon Inspector
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 The Amazon Inspector Matano managed log source lets you ingest your Amazon Inspector findings directly into Matano.

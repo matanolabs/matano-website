@@ -4,7 +4,7 @@ sidebar_label: GitHub
 sidebar_position: 4
 ---
 
-The GitHub audit logs managed log source lets you ingest your GitHub audit logs configuration history data directly into Matano.
+The GitHub audit logs managed log source lets you ingest your GitHub audit logs directly into Matano.
 
 The Github audit log tracks events triggered by activities that affect your GitHub organization. For a complete list of supported events, consult the [GitHub audit log documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
@@ -21,7 +21,7 @@ managed:
 
 ## Tables
 
-The GitHub audit logs history managed log source supports a single table containing GitHub audit logs configuration history data.
+The GitHub audit logs history managed log source supports a single table containing GitHub audit log data.
 
 ## Ingest
 

@@ -225,7 +225,7 @@ export default function Home(): JSX.Element {
           </HomepageSection>
 
           <HomepageSection
-            mainHeader="Built for scale 🦀🛡️"
+            mainHeader="Built for scale"
             subHeader="Eliminate gaps in your security program and analyze all your
           data."
           >

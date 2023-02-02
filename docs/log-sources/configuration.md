@@ -22,28 +22,37 @@ The configuration for a log source lives in a YAML file named `log_source.yml`. 
 
 ```yml
 # The unique name of the log source.
-name: "aws_cloudtrail"
+name: "my_log_source"
 
-# Properties for managed log sources
+# Optional: Properties for managed log sources
 managed:
   # The identifier of the managed log source
-  type: "AWS_CLOUDTRAIL"
+  type: "MY_LOG_SOURCE"
   # Map of string values for managed log source configuration
   properties: {}
 
+# Optional
 ingest:
+  # Custom: Optionally bring your own bucket
   s3_source:
     # Name of existing S3 Bucket to use as a source
     bucket_name: "my-bucket"
     # Object key prefix for existing S3 source
     key_prefix: "my-prefix"
 
-  # (Multi table log sources only) Used for mapping incoming data
-  # to the appropriate table at runtime.
+  # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime based on file object metadata
   select_table_from_payload_metadata: |
-    if match(.__metadata.s3.key, r'Digest') { "digest" } else { "default" }
+    if match(.__metadata.s3.key, r'somepath') { "other_table" } else { "main_table" }
+  # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime dynamically based on each event
+  select_table_from_payload_metadata: |
+    if ._table_name == "audit" {
+      "audits"
+    } else {
+      "main"
+    }
 
 # Defines the schema for a log source.
+# Note: For managed log sources, this will only extend the pre-defined schema with additional fields.
 schema:
   ecs_field_names:
     - event
@@ -56,7 +65,8 @@ schema:
         type: struct
         fields: []
 
-# The VRL expression to transform your data.
+# The VRL program to transform your data.
+# Note: For managed log sources, this will extend the pre-defined transformations and run afterwards allowing you to perform any additional custom transformations.
 transform: |
   if .json.eventTime != null {
       .ts = to_timestamp!(.json.eventTime, "milliseconds")

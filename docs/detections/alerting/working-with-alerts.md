@@ -9,7 +9,7 @@ All alerts are automatically stored in a Matano table named `matano_alerts`. The
 
 ### Common queries
 
-#### View alerts that breached threshold
+#### View alerts that are activated (exceeded threshold)
 
 ```sql
 select matano.alert.id as alert_id,
@@ -18,7 +18,7 @@ select matano.alert.id as alert_id,
 from matano_alerts
     where
         ts < current_timestamp - interval '1' hour
-        and matano.alert.breached = true
+        and matano.alert.activated = true
     group by matano.alert.id, matano.alert.dedupe
 ```
 
@@ -31,7 +31,7 @@ select
     event.action,
     count(matano.alert.rule.match.id) as rule_match_count
 from matano_alerts
-    where matano.alert.breached = true
+    where matano.alert.activated = true
     group by event.action
     order by rule_match_count desc
 ```

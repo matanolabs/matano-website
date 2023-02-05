@@ -43,8 +43,8 @@ ingest:
   # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime based on file object metadata
   select_table_from_payload_metadata: |
     if match(.__metadata.s3.key, r'somepath') { "other_table" } else { "main_table" }
-  # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime dynamically based on each event
-  select_table_from_payload_metadata: |
+  # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime dynamically based on the content of the event
+  select_table_from_payload: |
     if ._table_name == "audit" {
       "audits"
     } else {
@@ -124,11 +124,15 @@ The name defined in a table configuration will be combined with the log source n
 
 ### Table selection
 
-When Matano ingests data for a log source with multiple tables, it will route the data to the correct table based on the incoming data's metadata. You provide this logic to Matano using a VRL expression that Matano evaluates on incoming data's metadata at runtime.
+When Matano ingests data for a log source with multiple tables, it will route the data to the correct table based on the incoming data's metadata. Matano supports dynamic selection of the table to route an incoming payload to using a VRL expression that Matano evaluates on either the metadata of the incoming payload or on the actual payload data.
+
+#### Selecting table from payload metadata
+
+You can select the table for a log source with multiple tables based on the incoming payload metadata such as the S3 bucket and key.
 
 To define the table selection VRL expression use the `ingest.select_table_from_payload_metadata` key in your **log_source.yml**.
 
-#### Expression input
+**Expression input**
 
 Your VRL expression is passed a `__metadata` key with the following structure:
 
@@ -144,11 +148,11 @@ Your VRL expression is passed a `__metadata` key with the following structure:
 }
 ```
 
-#### Expression output
+**Expression output**
 
 The expression should return a string containing the table name that the data maps to.
 
-#### Example
+**Example of selecting table from payload metadata**
 
 For example, the `aws_cloudtrail` log source has 3 tables configured. The following VRL expression is defined to select the appropriate table from the uploaded file:
 
@@ -162,5 +166,36 @@ select_table_from_payload_metadata: |
     "insights"
   } else {
     "default"
+  }
+```
+
+#### Selecting table from payload metadata
+
+You can select the table for a log source with multiple tables based on the content of the event data.
+
+To define the table selection VRL expression use the `ingest.select_table_from_payload_metadata` key in your **log_source.yml**.
+
+**Expression input**
+
+Your VRL expression is passed the event as the direct input, accessible at the `.` field.
+
+**Expression output**
+
+The expression should return a string containing the table name that the data maps to.
+
+**Example of selecting table from payload metadata**
+
+For example, the `microsoft_aad` log source has 2 tables configured. The following VRL expression is defined to select the appropriate table from the uploaded file based on a property inside the event:
+
+```yml
+# log_source.yml
+
+select_table_from_payload: |
+  if ._table_name == "audit" {
+    "audits"
+  } else if _table.name == "signin" {
+    "signin"
+  } else {
+    abort
   }
 ```

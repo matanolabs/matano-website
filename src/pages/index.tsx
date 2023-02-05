@@ -168,7 +168,7 @@ export default function Home(): JSX.Element {
 
         <div className="flex flex-col gap-8 md:gap-y-24 mt-2 md:mt-8 mb-8 md:mb-16">
           <HomepageSection
-            mainHeader=" Matano lets you own your security data"
+            mainHeader="Matano lets you own your security data"
             subHeader="And be free from vendor lock-in"
             img={<img src={cover1} alt="Query data in Matano from query engines like Snowflake, Athena, BigQuery, Spark, and Trino" />}
             isImgFirst

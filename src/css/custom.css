@@ -22,6 +22,8 @@
   --ifm-font-family-base: "Inter";
   --ifm-heading-font-family: "Lexend";
   --ifm-hero-text-color: "black";
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-paragraph-margin-bottom: 1rem;
 }
 
 aside {

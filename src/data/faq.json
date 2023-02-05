@@ -1,0 +1,34 @@
+[
+  {
+    "question": "What is Matano?",
+    "answer": "Matano is an open source security lake platform (SIEM alternative) for AWS. It lets you ingest petabytes of security and log data from various sources, store and query them in a data lake, and create Python detections as code for realtime alerting. Matano is fully serverless and focuses on enabling high scale, low cost, and zero-ops, and deploys fully into your AWS account."
+  },
+  {
+    "question": "What is a security lake?",
+    "answer": "A security lake (or security data lake) is a repository of security logs parsed and normalized into a common structure and stored in object storage for cost-effective analysis. Security lakes allow you to centralize your security data and perform analysis and threat detection on petabytes of data at scale."
+  },
+  {
+    "question": "What log sources does Matano support?",
+    "answer": "Matano supports ingesting logs and data in any format (raw text, logs, JSON, CSV, etc.) using S3 or SQS based ingestion. Matano also provides dozens of native integrations to pull security logs from popular SaaS, Cloud, Host, and Network sources out of the box. See <a href=\"/docs/log-sources\">Log sources</a> and <a href=\"/docs/log-sources/managed-log-sources\">Managed log sources</a> for more information and a full list."
+  },
+  {
+    "question": "Can I use Matano with unstructured data?",
+    "answer": "Matano supports ingesting unstructured data (text, log, JSON, CSV, etc.). We believe that structuring your data is important to be able to perform effective analysis and correlation so Matano provides a log transformation pipeline to help you transform your data and conform it to a normalized schema."
+  },
+  {
+    "question": "What is an open table format?",
+    "answer": "An open table format is a format for describing large analytical datasets in a way that different query engines (e.g. Apache Spark or Snowflake) can seamlessly interoperate on the same dataset. Matano's usage of open table formats like Apache Iceberg allow you to retain ownership of your data on object storage, avoid vendor lock-in, and use the analytical engine of your choice."
+  },
+  {
+    "question": "What analytical query engines does Matano work with?",
+    "answer": "You can query your Matano data using any analytical query engine that supports Apache Iceberg. Currently, this includes Amazon Athena, Apache Spark, Trino, Dremio, Google BigQuery and Snowflake. With Matano, you can easily use multiple tools at the same time or migrate between these tools."
+  },
+  {
+    "question": "Do I need to use a third party tool to transform my data for Matano?",
+    "answer": "No, Matano includes a built-in log transformation pipeline that lets you easily parse and transform logs at ingest time using Vector Remap Language (VRL) without needing additional tools (e.g. Logstash, Cribl). See the <a href=\"/docs/log-sources/transformation\"> documentation on transformation</a> for more information."
+  },
+  {
+    "question": "How does Matano compare to existing SIEM tools?",
+    "answer": "Matano is an open source security lake platform that focuses on high scale and cost effectivity. While it shares functionality with SIEM and other tools, such as log ingestion, alerting, and detection, Matano uniquely allows you to ingest petabytes of data, store and query them in a data lake, and create Python detections as code for realtime alerting. See specific comparisons to tools such as <a href=\"/alternative-to/elastic\">Elastic</a>, <a  href=\"/alternative-to/siem\">traditional SIEM</a>, and <a href=\"/alternative-to/panther\">Panther</a> for more information."
+  }
+]

@@ -34,7 +34,19 @@ You can set an expiry time to any date time to ensure the access is short lived 
 <em>S3 presigned upload urls require you to know the Content length before hand.</em> Because of the way presigned URLs work, using AWS4 Signatures, the Content-Length
 is a required component when generating the presigned URL. This means we can't return one presigned URL and allow our clients to upload objects of variable size while
 it is not expired.</p><p>As a workaround, we can have the client request a presigned URL every time they want to perform an upload. This is not necessarily a big deal, and may
-be perfectly suitable for many scenarios.</p><div></div><p>However, this results in an additional call for every upload and may not be desirable. For example, say we want our clients to have a short lived
+be perfectly suitable for many scenarios.</p><div class="mermaid" data-mermaid-src="%%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '13px', 'fontFamily': 'Inter'}}}%%
+  sequenceDiagram
+    loop Each upload
+      Client->>Server: Request presigned URL
+      Server->>Client: Presigned  URL
+      Client->>S3: Upload object
+    end">%%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '13px', 'fontFamily': 'Inter'}}}%%
+  sequenceDiagram
+    loop Each upload
+      Client-&gt;&gt;Server: Request presigned URL
+      Server-&gt;&gt;Client: Presigned  URL
+      Client-&gt;&gt;S3: Upload object
+    end</div><p>However, this results in an additional call for every upload and may not be desirable. For example, say we want our clients to have a short lived
 session where they can upload a large number of objects, and latency is important.</p><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="a-new-api-using-temporary-credentials">A new API using temporary credentials<a class="hash-link" href="#a-new-api-using-temporary-credentials" title="Direct link to heading">​</a></h2><p>Presigned URLs don't seem to work well for our usecase, so let's try a new approach. AWS IAM offers APIs to
 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html" target="_blank" rel="noopener noreferrer">request temporary security credentials</a>. There's
 a few different APIs, but let's see if we can use <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html" target="_blank" rel="noopener noreferrer">AssumeRole</a> to return temporary

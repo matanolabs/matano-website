@@ -169,31 +169,31 @@ select_table_from_payload_metadata: |
   }
 ```
 
-#### Selecting table from payload metadata
+#### Selecting table from payload data
 
 You can select the table for a log source with multiple tables based on the content of the event data.
 
-To define the table selection VRL expression use the `ingest.select_table_from_payload_metadata` key in your **log_source.yml**.
+To define the table selection VRL expression use the `ingest.select_table_from_payload` key in your **log_source.yml**.
 
 **Expression input**
 
-Your VRL expression is passed the event as the direct input, accessible at the `.` field.
+Your VRL expression for selecting the table from the payload is passed the same input as for your transformer script: The event is accessible under the `.json` property if it is json and `.message` if it is not.
 
 **Expression output**
 
 The expression should return a string containing the table name that the data maps to.
 
-**Example of selecting table from payload metadata**
+**Example of selecting table from payload data**
 
-For example, the `microsoft_aad` log source has 2 tables configured. The following VRL expression is defined to select the appropriate table from the uploaded file based on a property inside the event:
+For example, the `microsoft_aad` log source has 2 tables configured. The following VRL expression is defined to select the appropriate table from the uploaded file based on a property inside the event data:
 
 ```yml
 # log_source.yml
 
 select_table_from_payload: |
-  if ._table_name == "audit" {
+  if .json.table_name == "audit" {
     "audits"
-  } else if _table.name == "signin" {
+  } else if json.table_name == "signin" {
     "signin"
   } else {
     abort

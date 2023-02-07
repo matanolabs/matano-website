@@ -1,6 +1,6 @@
 ---
 title: Okta
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 The Okta Matano managed log source lets you ingest your Okta System logs directly into Matano.

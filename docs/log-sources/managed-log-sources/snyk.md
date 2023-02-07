@@ -1,6 +1,6 @@
 ---
 title: Snyk
-sidebar_position: 6
+sidebar_position: 8
 ---
 
 The Snyk Matano managed log source lets you ingest your Snyk [Audit logs](https://snyk.docs.apiary.io/#reference/audit-logs/get-list-of-issues) and [vulnerabilty issues](https://snyk.docs.apiary.io/#reference/reporting-api/issues/get-list-of-issues).

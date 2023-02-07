@@ -24,13 +24,13 @@ We're adding support for pulling logs and enrichment data from identity and auth
 
 <br/>
 
-Identity logs, generated from solutions such as Okta, Azure AD, and Duo, play a crucial role in understanding user activity and behavior within your organization. Matano now has fully supports centralizing all your identity data into a structured data lake in your AWS account.
+Identity logs, generated from solutions such as Okta, Azure AD, and Duo, play a crucial role in understanding user activity and behavior within your organization. Matano now fully supports centralizing all your identity data into a structured data lake in your AWS account.
 
 ### New Log Sources
 
 | Log Source       | Tables                                                                |
 |------------------|-----------------------------------------------------------------------|
-| [1Password](/docs/log-sources/managed/1password)        |**item_usages**<br/>**sigin_attempts**                                     |
+| [1Password](/docs/log-sources/managed/1password)        |**item_usages**<br/>**signin_attempts**                                     |
 | [Duo](/docs/log-sources/managed/duo)              |**admin**<br/>**auth**<br/>**offline_enrollment**<br/>**summary**<br/>**telephony** |
 | [Google Workspace](/docs/log-sources/managed/google-workspace)  |**login**                                                               |
 | [Microsoft Azure AD](/docs/log-sources/managed/microsoft-graph)             |**aad_signinlogs**                                                      |

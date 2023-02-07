@@ -28,6 +28,9 @@ Identity logs, generated from solutions such as Okta, Azure AD, and Duo, play a 
 
 ### New Log Sources
 
+In this release, we're adding support for ingesting authentication activity and identity data from Okta, Duo, 1Password, Microst Azure Active Directory (Azure AD), and Google Workspace.
+
+
 | Log Source       | Tables                                                                |
 |------------------|-----------------------------------------------------------------------|
 | [1Password](/docs/log-sources/managed/1password)        |**item_usages**<br/>**signin_attempts**                                     |
@@ -38,6 +41,8 @@ Identity logs, generated from solutions such as Okta, Azure AD, and Duo, play a 
 
 
 ### Sample queries
+
+You can use the full power of SQL to analyze sign-in behavior and other authentication activity. Here are some sample SQL queries that you could run on your identity data:
 
 #### Recent failed sign-in attempts from 1Password
 ```sql
@@ -58,7 +63,7 @@ GROUP  BY user.full_name
 
 ### Up next
 
-In the near future, we'll be expanding our Identity & Auth integrations further by **adding support for synchronizing enrichment data (users, roles, lookup tables, etc.)** to your data lake as well. We also are working on new managed integration sources, so feel free to reach out if there is a log source you'd like to see in this list!
+In the near future, we'll be expanding our Identity & Auth integrations further by **adding support for synchronizing enrichment data (users, roles, lookup tables, etc.)** into your data lake. We also are working on new managed integration sources, so feel free to reach out if there is a log source you'd like to see in this list!
 
 ### Get started now
 

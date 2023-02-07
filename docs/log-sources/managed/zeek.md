@@ -1,6 +1,6 @@
 ---
 title: Zeek
-sidebar_position: 10
+sidebar_position: 9
 ---
 
 The Zeek Matano managed log source lets you ingest your Zeek logs directly into Matano.

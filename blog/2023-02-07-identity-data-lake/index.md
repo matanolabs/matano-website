@@ -28,7 +28,7 @@ Identity logs, generated from solutions such as Okta, Azure AD, and Duo, play a 
 
 ### New Log Sources
 
-In this release, we're adding support for ingesting authentication activity and identity data from Okta, Duo, 1Password, Microst Azure Active Directory (Azure AD), and Google Workspace.
+In this release, we're adding support for ingesting authentication activity and identity data from Okta, Duo, 1Password, Microsoft Azure Active Directory (Azure AD), and Google Workspace.
 
 
 | Log Source       | Tables                                                                |

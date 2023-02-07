@@ -14,7 +14,7 @@ We're adding support today to Matano for seven new AWS managed log sources, incl
 
 <!-- truncate -->
 
-AWS, with its over two hundred services, generates a multitude of logs that are critical for understanding whats going in your cloud environment. Matano already has [full support for CloudTrail logs](https://www.matano.dev/docs/log-sources/managed-log-sources/aws/cloudtrail), which centralize logs from all your AWS services into your own Matano security lake. This new enhancement adds integrations for AWS services that include specific additional information beyond what AWS CloudTrail provides. These include:
+AWS, with its over two hundred services, generates a multitude of logs that are critical for understanding whats going in your cloud environment. Matano already has [full support for CloudTrail logs](https://www.matano.dev/docs/log-sources/managed/aws/cloudtrail), which centralize logs from all your AWS services into your own Matano security lake. This new enhancement adds integrations for AWS services that include specific additional information beyond what AWS CloudTrail provides. These include:
 
 ### S3 Access Logs
 
@@ -42,4 +42,4 @@ In the near future, we'll be expanding our AWS managed log support even further,
 
 ### Get started now
 
-You can ingest and analyze any of these log sources in your AWS account out of the box today. View the [complete documentation](https://www.matano.dev/docs/log-sources/managed-log-sources/aws) for more information.
+You can ingest and analyze any of these log sources in your AWS account out of the box today. View the [complete documentation](https://www.matano.dev/docs/log-sources/managed/aws) for more information.

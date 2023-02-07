@@ -11,17 +11,17 @@ By default, a log source will use the [**Elastic Common Schema (ECS)**](https://
 
 Matano encourages you to normalize your log data to ECS, so you can best analyze, and correlate the data represented in your events.
 
-Matano can ingest from sources that use already use ECS, like Beats processors, without requiring transformation. Otherwise, you can use a [pre-built Matano transformation](./managed-log-sources/index.mdx) to normalize data from a supported source to ECS or write your [own transformation](./transformation.md) to normalize log data.
+Matano can ingest from sources that use already use ECS, like Beats processors, without requiring transformation. Otherwise, you can use a [pre-built Matano transformation](./managed/index.mdx) to normalize data from a supported source to ECS or write your [own transformation](./transformation.md) to normalize log data.
 
 Matano currently supports ECS version **8.3.1**.
 
 ## Using a Matano managed log source
 
-If your log source is supported by Matano, you should use a [Matano managed log source](./managed-log-sources/index.mdx). Matano will take care of specifying the schema for your log source.
+If your log source is supported by Matano, you should use a [Matano managed log source](./managed/index.mdx). Matano will take care of specifying the schema for your log source.
 
 ## Defining a custom schema
 
-If you aren't using a Matano [managed log source](./managed-log-sources/index.mdx), you must provide the schema for your log source.
+If you aren't using a Matano [managed log source](./managed/index.mdx), you must provide the schema for your log source.
 
 ## Specifying ECS fields
 

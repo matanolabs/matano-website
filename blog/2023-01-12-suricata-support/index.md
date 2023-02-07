@@ -108,5 +108,5 @@ and an open source language such as Python for detections, Matano helps you expr
 
 We're excited to add support for Suricata logs to Matano, making it easy for you to ingest and analyze your network IDS/IPS logs.
 
-You can start using the Suricata managed log sources today. Follow the [steps](/docs/getting-started) to get started with Matano and take a look at the [Suricata](/docs/log-sources/managed-log-sources/suricata) documentation.
+You can start using the Suricata managed log sources today. Follow the [steps](/docs/getting-started) to get started with Matano and take a look at the [Suricata](/docs/log-sources/managed/suricata) documentation.
 

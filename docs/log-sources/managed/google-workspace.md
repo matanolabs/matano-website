@@ -41,7 +41,7 @@ my-matano-dir/
             └── login.yml
 ```
 
-For a complete reference on configuring log sources, including extending the table schema, see [_Log source configuration_](../../configuration.md).
+For a complete reference on configuring log sources, including extending the table schema, see [_Log source configuration_](../configuration.md).
 
 ### Secret
 

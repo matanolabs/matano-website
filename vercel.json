@@ -1,0 +1,9 @@
+{
+    "redirects": [
+        {
+            "source": "/docs/log-sources/managed-log-sources/:path*",
+            "destination": "/docs/log-sources/managed/:path*",
+            "permanent": false
+        }
+    ]
+}

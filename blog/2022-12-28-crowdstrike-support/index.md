@@ -151,6 +151,6 @@ We're excited to add support for Crowdstrike Falcon and Crowdstrike Falcon Data
 Replicator (FDR) logs to Matano, making it easy for you to ingest and analyze
 your endpoint logs.
 
-You can start using the Crowdstrike managed log sources today. Follow the [steps](/docs/getting-started) to get started with Matano and take a look at the [Crowdstrike](/docs/log-sources/managed-log-sources/crowdstrike) documentation.
+You can start using the Crowdstrike managed log sources today. Follow the [steps](/docs/getting-started) to get started with Matano and take a look at the [Crowdstrike](/docs/log-sources/managed/crowdstrike) documentation.
 
 Happy threat hunting! 🦅

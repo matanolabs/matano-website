@@ -1,4 +1,5 @@
 {
+    "cleanUrls": true,
     "redirects": [
         {
             "source": "/docs/log-sources/managed-log-sources/:path*",

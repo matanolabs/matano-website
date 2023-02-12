@@ -88,11 +88,10 @@ export function CtaFooter() {
         <h2 className="!text-3xl text-center font-bold tracking-tight text-gray-900 sm:!text-4xl lg:!text-5xl sm:tracking-tight">
           <span className="block">
             Start building on the <span className="text-blue-600 underline">security lake platform</span>
-            {/* Build your own <span className="text-blue-600 underline">security data lake</span> */}
             {/* High scale. Low cost. Zero ops. <span className="text-blue-600 underline">Pick three.</span> */}
           </span>
         </h2>
-        <span className="block text-center text-lg sm:text-xl md:text-2xl">
+        <span className="block text-center text-lg sm:text-xl md:text-2xl sm:mt-2">
           Unlock all your security data today.
         </span>
         <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 mt-8">

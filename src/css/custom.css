@@ -36,6 +36,9 @@
   :root {
     --docusaurus-announcement-bar-height: 35px !important;
   }
+  .navbar__link {
+    font-size: 1.15rem;
+  }
 }
 
 aside {

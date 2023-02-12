@@ -26,6 +26,18 @@
   --ifm-paragraph-margin-bottom: 1rem;
 }
 
+@media (max-width: 996px) {
+  .footer__link-item {
+    margin: 0.4rem 0;
+  }
+}
+
+@media (min-width: 997px) {
+  :root {
+    --docusaurus-announcement-bar-height: 35px !important;
+  }
+}
+
 aside {
   margin-bottom: 1rem;
 }

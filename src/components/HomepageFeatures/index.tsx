@@ -12,8 +12,8 @@ const FeatureList: FeatureItem[] = [
     title: "Collect data from all your sources",
     description: (
       <>
-        Matano lets you collect log data from sources using S3 or SQS based ingestion, and comes out of the
-        box with sources like CloudTrail, Zeek, Suricata and more.
+        Matano lets you collect data using S3 or SQS based ingestion, comes out of the
+        box with sources like CloudTrail, Zeek, and Okta, and automatically pulls log data from all your SaaS sources.
       </>
     ),
   },
@@ -21,20 +21,20 @@ const FeatureList: FeatureItem[] = [
     title: "Ingest, transform, normalize log data",
     description: (
       <>
-        Matano normalizes and transforms your data using VRL. Matano works with the Elastic Common Schema by
+        Matano includes an embedded transformation engine that normalizes your data using <a href="https://vector.dev/docs/reference/vrl/" target="_blank" rel="noopener noreferrer">VRL</a>. Matano works with the Elastic Common Schema by
         default and you can define your own schema.
       </>
     ),
   },
   {
     title: "Detections as code",
-    description: <>Write Python detections to implement realtime alerting on your log data.</>,
+    description: <>Use the flexibility of Python to implement realtime alerting on your log data and introduce a development lifecycle to detection by managing rules in Git (test, code review, audit).</>,
   },
   {
-    title: "Apache Iceberg Data lake",
+    title: "Security Data lake",
     description: (
       <>
-        All data is ingested into an Apache Iceberg data lake. The Iceberg open table format ensures you{" "}
+        All your security data is ingested into an open security data lake. The Apache Iceberg open table format ensures you{" "}
         <i>own your data</i> in a vendor agnostic format.
       </>
     ),

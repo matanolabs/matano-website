@@ -33,10 +33,11 @@ function HomepageHeader() {
           for AWS
         </h1>
         <p className="font-sans font-normal text-lg sm:text-2xl sm:leading-9">
-          Serverless, high scale, low cost, zero-ops security log analytics{" "}
+          Unify your security analytics in a complete platform built around a security data lake{" "}
+          {/* Serverless, high scale, low cost, zero-ops security log analytics{" "} */}
           <span className="underline decoration-pink-500">in your AWS account</span>.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-4 mt-6">
           <a
             className="my-btn text-white hover:text-white text-lg bg-blue-600 border-blue-600 hover:bg-blue-700 w-full mb-2 sm:w-auto"
             href="/docs"
@@ -86,7 +87,9 @@ export function CtaFooter() {
       <div className="max-w-7xl mx-auto py-12 px-12 lg:py-24 lg:flex lg:flex-col lg:items-center lg:justify-between">
         <h2 className="!text-3xl text-center font-bold tracking-tight text-gray-900 sm:!text-4xl lg:!text-5xl sm:tracking-tight">
           <span className="block">
-            High scale. Low cost. Zero ops. <span className="text-blue-600 underline">Pick three.</span>
+            Start building on the <span className="text-blue-600 underline">security lake platform</span>
+            {/* Build your own <span className="text-blue-600 underline">security data lake</span> */}
+            {/* High scale. Low cost. Zero ops. <span className="text-blue-600 underline">Pick three.</span> */}
           </span>
         </h2>
         <span className="block text-center text-lg sm:text-xl md:text-2xl">
@@ -179,8 +182,12 @@ export default function Home(): JSX.Element {
             </p>
 
             <p>
-              With Matano, all your data is in open format Apache Iceberg tables that can can be directly
-              queried from different tools (AWS Athena, Snowflake, etc.) without having to copy any data.
+              Matano takes a different approach by building around an open security data lake that you own.
+            </p>
+
+            <p>
+              With Matano, all your data is stored in open format Apache Iceberg tables that can can be directly
+              queried from different tools (Amazon Athena, Snowflake, Spark etc.) without having to copy any data.
             </p>
           </HomepageSection>
 
@@ -211,12 +218,12 @@ export default function Home(): JSX.Element {
             img={<img className="rounded-xl" src={cover3} alt="An example Matano log transformation script normalizing Cloudtrail logs using Vector Remap language" />}
           >
             <p>
-              Matano allows for Vector Remap Language (VRL) scripting to easily normalize & enrich raw
+             Matano includes a serverless log transformation pipeline allowing for Vector Remap Language (VRL) scripting to easily normalize & enrich raw
               security logs without maintaining any servers (goodbye Logstash).
             </p>
             <p>
-              Managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools
-              using pre-built parsers.
+              Matano provides dozens of managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools
+              using pre-built parsers and integrations.
             </p>
             <p>
               With native support for the Elastic Common Schema, Matano enables enhanced correlation and bulk
@@ -235,7 +242,7 @@ export default function Home(): JSX.Element {
             </p>
 
             <p className="md:flex-1">
-              Matano uses a data lake architecture with the latest technologies in Big Data from Apache Arrow
+              Matano's security data lake architecture uses the latest technologies in Big Data from Apache Arrow
               and Iceberg to Rust, and is built on foundational, predictable cloud services like S3, Lambda,
               and SQS.
             </p>

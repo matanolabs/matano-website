@@ -33,8 +33,8 @@ function HomepageHeader() {
           for AWS
         </h1>
         <p className="font-sans font-normal text-lg sm:text-2xl sm:leading-9">
-          Unify your security analytics in a complete platform built around a security data lake{" "}
-          {/* Serverless, high scale, low cost, zero-ops security log analytics{" "} */}
+          {/* Unify your security analytics in a complete platform built around a security data lake{" "} */}
+          Serverless, high scale, low cost, zero-ops security log analytics{" "}
           <span className="underline decoration-pink-500">in your AWS account</span>.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-4 mt-6">

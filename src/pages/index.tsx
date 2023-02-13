@@ -168,7 +168,7 @@ export default function Home(): JSX.Element {
           </picture>
         </div>
 
-        <div className="flex flex-col gap-8 md:gap-y-24 mt-2 md:mt-8 mb-8 md:mb-16">
+        <div className="flex flex-col gap-8 md:gap-y-32 mt-2 md:mt-12 mb-8 md:mb-24">
           <HomepageSection
             mainHeader="Matano lets you own your security data"
             subHeader="And be free from vendor lock-in"
@@ -231,7 +231,7 @@ export default function Home(): JSX.Element {
           </HomepageSection>
 
           <HomepageSection
-            mainHeader="Built for scale"
+            mainHeader="Built for petabyte scale"
             subHeader="Eliminate gaps in your security program and analyze all your
           data."
           >
@@ -272,7 +272,7 @@ function HomepageSection({ mainHeader, subHeader, children, img, isImgFirst }: a
           </div>
 
           <div className={contentClasses}>
-            <div className="lg:flex flex-1 lg:flex-col text-xl md:text-2xl">{children}</div>
+            <div className="lg:flex flex-1 lg:flex-col text-xl md:text-xl">{children}</div>
             {img && (
               <div className="flex flex-1 items-center rounded-xl shadow-2xl shadow-sky-100">{img}</div>
             )}

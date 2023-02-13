@@ -41,7 +41,7 @@ const config = {
       href: "https://fonts.gstatic.com",
       crossorigin: true,
     },
-    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lexend:wght@400;500;600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600",
   ],
   presets: [
     [

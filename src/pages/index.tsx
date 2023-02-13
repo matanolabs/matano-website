@@ -20,7 +20,7 @@ function HomepageHeader() {
     <header className="hero-bg flex-1 flex px-12 sm:px-24 pt-24 pb-20 sm:pt-32 sm:pb-48 shadow-md">
       <div className="max-w-5xl">
         <h1
-          className="pt-0 subpixel-antialiased mx-auto font-display sm:text-6xl text-4xl font-[Lexend,sans-serif] font-semibold tracking-tight text-slate-900"
+          className="pt-0 subpixel-antialiased mx-auto font-display sm:text-6xl text-4xl font-[Inter,sans-serif] font-semibold tracking-tight text-slate-900"
           style={{
             lineHeight: 1.1,
           }}
@@ -76,7 +76,7 @@ function HomepageHeader() {
 const Usecases = () => {
   return (
     <section>
-      <h2 className="!text-4xl font-[Lexend] text-center py-8 px-8">Usecases</h2>
+      <h2 className="!text-4xl font-[Inter] text-center py-8 px-8">Usecases</h2>
     </section>
   );
 };
@@ -267,8 +267,8 @@ function HomepageSection({ mainHeader, subHeader, children, img, isImgFirst }: a
       <div className="mx-2 sm:mx-4 md:mx-12 flex flex-col">
         <div className="mx-5 md:mx-12">
           <div className="mb-4 md:mb-8">
-            <h2 className="!text-3xl md:!text-5xl pt-8 font-[Lexend]">{mainHeader}</h2>
-            <h3 className="!text-xl md:!text-3xl font-[Lexend]">{subHeader}</h3>
+            <h2 className="!text-3xl md:!text-5xl pt-8 font-[Inter]">{mainHeader}</h2>
+            <h3 className="!text-xl md:!text-3xl font-[Inter]">{subHeader}</h3>
           </div>
 
           <div className={contentClasses}>

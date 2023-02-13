@@ -76,7 +76,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container flex flex-col items-center">
-        <h2 className="!text-4xl font-[Lexend] text-center py-8 px-8">Why Matano?</h2>
+        <h2 className="!text-4xl font-[Inter] text-center py-8 px-8">Why Matano?</h2>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

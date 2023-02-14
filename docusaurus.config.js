@@ -56,6 +56,8 @@ const config = {
           editUrl: "https://github.com/matanolabs/matano-website/tree/main/website/",
         },
         blog: {
+          blogDescription: "News, updates, announcements, content, and more from Matano.",
+          blogSidebarCount: "ALL",
           showReadingTime: true,
           editUrl: "https://github.com/matanolabs/matano-website/tree/main/website/",
         },

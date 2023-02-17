@@ -16,7 +16,7 @@ Use the managed log source by specifying the `managed.type` property in your `lo
 name: "aws_waf"
 
 managed:
-  type: "AWS_waf"
+  type: "AWS_WAF"
 ```
 
 ## Tables

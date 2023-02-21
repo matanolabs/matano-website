@@ -37,12 +37,15 @@ ingest:
   s3_source:
     # Name of existing S3 Bucket to use as a source
     bucket_name: "my-bucket"
-    # Object key prefix for existing S3 source
+    # Object key prefix to match to a log source.
     key_prefix: "my-prefix"
+    # (Optional) key_pattern is a regex pattern that lets you specify non consecutive patterns to match a log source.
+    key_pattern: "AWSLogs/.*/CloudTrail"
 
   # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime based on file object metadata
   select_table_from_payload_metadata: |
     if match(.__metadata.s3.key, r'somepath') { "other_table" } else { "main_table" }
+
   # Custom: (Multi table log sources only) Used for mapping incoming data to the appropriate table at runtime dynamically based on the content of the event
   select_table_from_payload: |
     if ._table_name == "audit" {

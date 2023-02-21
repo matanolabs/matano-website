@@ -33,6 +33,8 @@ If you have existing data, or need to have your raw data in a specific location,
 In your `log_source.yml`, specify the S3 Bucket and object prefix that your data is located at:
 
 ```yml
+# log_source.yml
+
 ingest:
   s3_source:
     bucket_name: "my-org-logs-bucket"
@@ -41,7 +43,26 @@ ingest:
 
 If you are bringing your own bucket, you need to ensure that you have correctly set up permissions on the bucket for Matano to be able to access it.
 
-#### Using a bucket with KMS encryption
+#### Using a key pattern to match non consecutive key patterns
+
+The `key_prefix` configuration lets you specify a key prefix to match to a log source. However, you may want to use the same bucket source for multiple log sources and find that there is no simple consecutive prefix that matches a log source. In this case, you can specify a regex pattern in the `ingest.s3_source.key_pattern` configuration option. Matano will use this pattern to match an incoming key to a log source.
+
+For example, in the following configuration:
+
+```yml
+# log_source.yml
+ingest:
+  s3_source:
+    bucket_name: "my-org-logs-bucket"
+    key_prefix: "AWSLogs"
+    key_pattern: "AWSLogs/.*/CloudTrail"
+```
+
+A wildcard is used to match the account ID as part of the key pattern to the log source.
+
+To specify minimum IAM identity permissions, Matano will continue to use the `key_prefix` configuration. If no `key_prefix` is provided, permission to read all objects in the source bucket will added to the identity policy.
+
+#### Ingesting from a bucket with KMS encryption
 
 To allow Matano to ingest data from a bucket with KMS encryption, in addition to setting the resource based policy, add a tag on your KMS Key as follows:
 

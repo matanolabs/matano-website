@@ -56,10 +56,12 @@ The Microsoft Graph managed log source supports the following tables:
 |       Table       |    Identifier    |                                    Description                                    |
 | :---------------: | :--------------: | :-------------------------------------------------------------------------------: |
 | [Sign-in Logs][1] | `aad_signinlogs` | Review errors and patterns in Azure Active Directory (Azure AD) sign in activity. |
+| [Audit Logs][1] | `aad_auditlogs` | Every logged event in Azure AD, including changes to applications, groups, users, and licenses. |
 
 </div>
 
 [1]: https://learn.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins
+[2]: https://learn.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-audit-logs
 
 ## Ingest
 
@@ -69,6 +71,6 @@ Matano integrates with Microsoft Graph to automatically pull relevant logs on a 
 
 ## Schema
 
-Microsoft Graph event data is normalized to ECS fields. Custom fields are normalized into the `azure` field. You can view the [complete mapping][1] to see the full schema.
+Microsoft Graph event data is normalized to ECS fields. Custom fields are normalized into the `azure` field. You can view the [complete mappings][3] to see the full schema.
 
-[1]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/msft/tables/
+[3]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/msft/tables/

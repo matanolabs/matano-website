@@ -4,7 +4,7 @@ slug: /log-sources/managed/google-workspace
 sidebar_position: 5
 ---
 
-The Google Workspace managed log source allows you to collect logs from various Google Workspace audit, activity, and report endpoints into Matano.
+The Google Workspace managed log source allows you to collect logs from various Google Workspace audit, activity, and report endpoints into Matano. The managed log source collects and normalizes data and audit activity from all the [Google Workspace Audit Reports API endpoints](https://developers.google.com/admin-sdk/reports/v1/get-start/overview) as well as alerts from the [Google Alert Center API](https://developers.google.com/admin-sdk/alertcenter/reference/rest).
 
 ## Prerequisites
 
@@ -53,13 +53,12 @@ The Google Workspace managed log source supports the following tables:
 
 <div >
 
-|   Table    | Identifier |                    Description                    |
-| :--------: | :--------: | :-----------------------------------------------: |
-| [Login][1] |  `login`   | Track sign-in activity from users to your domain. |
+|   Table    | Identifier |                                     Description                                      |
+| :--------: | :--------: | :----------------------------------------------------------------------------------: |
+| [Login][1] |  `login`   |                  Track sign-in activity from users to your domain.                   |
+| [Admin][2] |  `admin`   | Information on the Admin console activities of all of your account's administrators. |
 
 </div>
-
-[1]: https://developers.google.com/admin-sdk/reports/v1/appendix/activity/login
 
 ## Ingest
 
@@ -69,6 +68,8 @@ Matano integrates with your Google Workspace account to automatically pull relev
 
 ## Schema
 
-Google Workspace event data is normalized to ECS fields. Custom fields are normalized into the `google_workspace` field. You can view the [complete mapping][1] to see the full schema.
+Google Workspace event data is normalized to ECS fields. Custom fields are normalized into the `google_workspace` field. You can view the [complete mapping][3] to see the full schema.
 
-[1]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/google_workspace/tables/
+[1]: https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-login
+[2]: https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-admin
+[3]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/google_workspace/tables/

@@ -10,12 +10,14 @@ The structure of the configuration is as follows:
 ```yml
 # matano.config.yml
 
-# Mandatory. AWS Account and region to deploy to.
-aws_account: 123456789012
-aws_region: us-east-1
+# AWS related configuration
+aws:
+  # Mandatory. AWS Account and region to deploy to.
+  account: 123456789012
+  region: us-east-1
 
-# (optional) Custom AWS tags to add to all Matano resources
-aws_tags:
-  key: value
-  dept: "123"
+  # (optional) Custom AWS tags to add to all Matano resources
+  tags:
+    key: value
+    dept: "123"
 ```

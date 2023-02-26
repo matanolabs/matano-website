@@ -1,6 +1,6 @@
 ---
 title: Duo
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 The Duo Matano managed log source lets you ingest your Duo logs directly into Matano.

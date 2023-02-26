@@ -1,7 +1,7 @@
 ---
 title: AWS Web Application Firewall (WAF) logs
 sidebar_label: AWS WAF
-sidebar_position: 8
+sidebar_position: 5
 ---
 
 The AWS Web Application Firewall (WAF) Matano managed log source lets you ingest your AWS WAF protected traffic logs directly into Matano.

@@ -1,7 +1,7 @@
 ---
 title: Google Workspace
 slug: /log-sources/managed/google-workspace
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 The Google Workspace managed log source allows you to collect logs from various Google Workspace audit, activity, and report endpoints into Matano. The managed log source collects and normalizes data and audit activity from all the [Google Workspace Audit Reports API endpoints](https://developers.google.com/admin-sdk/reports/v1/get-start/overview) as well as alerts from the [Google Alert Center API](https://developers.google.com/admin-sdk/alertcenter/reference/rest).

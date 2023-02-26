@@ -1,6 +1,6 @@
 ---
 title: Microsoft Graph
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 The Microsoft Graph managed log source allows you to collect various audit, reporting, and other logs from Microsoft 365 directly into Matano

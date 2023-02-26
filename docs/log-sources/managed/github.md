@@ -1,7 +1,7 @@
 ---
 title: GitHub Audit logs
 sidebar_label: GitHub
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 The GitHub audit logs managed log source lets you ingest your GitHub audit logs directly into Matano.

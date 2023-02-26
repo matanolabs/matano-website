@@ -1,6 +1,6 @@
 ---
 title: AWS CloudTrail
-sidebar_label: CloudTrail
+sidebar_label: AWS CloudTrail
 sidebar_position: 1
 ---
 

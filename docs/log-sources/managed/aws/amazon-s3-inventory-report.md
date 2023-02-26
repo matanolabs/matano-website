@@ -1,7 +1,7 @@
 ---
 title: Amazon S3 Inventory Reports
 sidebar_label: Amazon S3 Inventory Reports
-sidebar_position: 3
+sidebar_position: 8
 ---
 
 The Amazon S3 Inventory Reports Matano managed log source lets you ingest your S3 inventory reports directly into Matano.

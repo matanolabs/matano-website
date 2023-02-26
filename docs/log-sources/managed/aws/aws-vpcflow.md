@@ -1,6 +1,6 @@
 ---
 title: AWS VPC Flow Logs
-sidebar_label: VPC Flow
+sidebar_label: AWS VPC Flow
 sidebar_position: 4
 ---
 

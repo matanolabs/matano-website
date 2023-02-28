@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Head from "@docusaurus/Head";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { useColorMode } from '@docusaurus/theme-common';
+import { useColorMode } from "@docusaurus/theme-common";
 import Layout from "@theme/Layout";
 import CodeBlock from "@theme/CodeBlock";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
@@ -13,11 +13,78 @@ import diagramWebp from "@site/src/assets/diagram.webp";
 import cover1 from "@site/src/assets/main1.png";
 import cover2 from "@site/src/assets/main2.png";
 import cover3 from "@site/src/assets/main3.png";
+import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
+
+const Waitlist = (props: any) => {
+  let baseCls = "flex flex-col xl:flex-row gap-4 xl:gap-8 py-2";
+  if (props.centered) {
+    baseCls = clsx(baseCls, "items-center text-center");
+  }
+  return (
+    <div {...props} className={clsx(props.className, "mt-8 flex flex-col")}>
+      <div className={baseCls}>
+        <div>
+          <div className="text-lg text-slate-700 font-medium">
+            We're building a fully managed cloud SIEM alternative.
+          </div>
+          <div className="text-2xl mt-1">
+            Join the waitlist for <strong className="text-blue-600">Matano Cloud.</strong>{" "}
+          </div>
+        </div>
+        <SubscribeForm />
+      </div>
+    </div>
+  );
+};
+const mcUrl =
+  "https://dev.us13.list-manage.com/subscribe/post?u=9ae6754442e0e3ac2d76a9f10&amp;id=41bedb4068&amp;f_id=00248de2f0";
+const SubscribeForm = () => {
+  const { loading, error, success, message, handleSubmit } = useMailChimpForm(mcUrl);
+  const { fields, handleFieldChange } = useFormFields({
+    EMAIL: "",
+  });
+
+  let postMessage = "";
+  if (loading) {
+    postMessage = "Submitting...";
+  } else if (error) {
+    postMessage = "Error subscribing to waitlist, please try again.";
+  } else if (success) {
+    postMessage = "Thanks for joining the waitlist!";
+  }
+  if (loading || error || success) {
+    return <div className="lg:ml-4 text-lg">{postMessage}</div>;
+  }
+  return (
+    <div className="w-full flex-1 md:p-1 flex flex-col md:flex-row items-center gap-2">
+      <input
+        id="EMAIL"
+        type="email"
+        value={fields.EMAIL}
+        onChange={handleFieldChange}
+        placeholder="Enter your email"
+        className="w-full flex-1 rounded-md border-0 bg-gray-200 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 flex-1"
+      />
+      <a
+        type="submit"
+        className="w-full my-btn text-white hover:text-white bg-blue-500 border-blue-500 hover:bg-blue-600 md:w-auto"
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          handleSubmit(fields);
+          console.log("done!");
+        }}
+      >
+        Join the Waitlist
+      </a>
+    </div>
+  );
+};
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className="hero-bg flex-1 flex px-12 sm:px-24 pt-24 pb-20 sm:pt-32 sm:pb-48 shadow-md">
+    <header className="hero-bg flex-1 flex flex-col px-12 sm:px-24 pt-24 pb-20 sm:pt-32 sm:pb-48 shadow-md">
       <div className="max-w-5xl">
         <h1
           className="pt-0 subpixel-antialiased mx-auto font-display sm:text-6xl text-4xl font-[Inter,sans-serif] font-semibold tracking-tight text-slate-900"
@@ -69,6 +136,7 @@ function HomepageHeader() {
           </a>
         </div>
       </div>
+      <Waitlist className="w-full md:w-5/6" />
     </header>
   );
 }
@@ -133,15 +201,16 @@ export function CtaFooter() {
             Join the community
           </a>
         </div>
+        <Waitlist centered className="w-full md:w-5/6 mt-12 lg:mt-16 mx-auto" />
       </div>
     </div>
   );
 }
 
-function LightTheme({children}: any) {
+function LightTheme({ children }: any) {
   const { setColorMode } = useColorMode();
   useEffect(() => {
-    setColorMode('light');
+    setColorMode("light");
   }, []);
   return <>{children}</>;
 }
@@ -150,110 +219,133 @@ export default function Home(): JSX.Element {
   return (
     <Layout description="Serverless, high scale, low cost SIEM alternative in your AWS account. Ingest petabytes of security data and write Python detections as code.">
       <LightTheme>
-      <Head>
-        <html className="mtn-homepage" />
-        <title>Matano | Open source security lake platform for AWS</title>
-        <meta property="og:title" content="Matano | Open source security lake platform for AWS" />
-        <meta property="og:image" content={coverPng} />
-      </Head>
-      <div className="flex-1 flex">
-        <HomepageHeader />
-      </div>
-      <main className="flex flex-col items-center pb-16 bg-slate-100">
-        <div className="rounded-xl sm:rounded-2xl mx-4 sm:mx-16 shadow-xl sm:shadow-2xl !shadow-blue-400 -mt-8 sm:-mt-24 mb-12 md:mb-20">
-          <picture>
-            <source type="image/webp" srcSet={diagramWebp} />
-            <source type="image/png" srcSet={diagramPng} />
-            <img alt="Architecture diagram showing components of Matano" className="rounded-xl sm:rounded-2xl" src={diagramPng} />
-          </picture>
+        <Head>
+          <html className="mtn-homepage" />
+          <title>Matano | Open source security lake platform for AWS</title>
+          <meta property="og:title" content="Matano | Open source security lake platform for AWS" />
+          <meta property="og:image" content={coverPng} />
+        </Head>
+        <div className="flex-1 flex">
+          <HomepageHeader />
         </div>
+        <main className="flex flex-col items-center pb-16 bg-slate-100">
+          <div className="rounded-xl sm:rounded-2xl mx-4 sm:mx-16 shadow-xl sm:shadow-2xl !shadow-blue-400 -mt-8 sm:-mt-24 mb-12 md:mb-20">
+            <picture>
+              <source type="image/webp" srcSet={diagramWebp} />
+              <source type="image/png" srcSet={diagramPng} />
+              <img
+                alt="Architecture diagram showing components of Matano"
+                className="rounded-xl sm:rounded-2xl"
+                src={diagramPng}
+              />
+            </picture>
+          </div>
 
-        <div className="flex flex-col gap-8 md:gap-y-32 mt-2 md:mt-12 mb-8 md:mb-24">
-          <HomepageSection
-            mainHeader="Matano lets you own your security data"
-            subHeader="And be free from vendor lock-in"
-            img={<img src={cover1} alt="Query data in Matano from query engines like Snowflake, Athena, BigQuery, Spark, and Trino" />}
-            isImgFirst
-          >
-            <p>
-              Cybersecurity vendors lock your data in proprietary formats that make it difficult to use
-              outside of their products.
-            </p>
+          <div className="flex flex-col gap-8 md:gap-y-32 mt-2 md:mt-12 mb-8 md:mb-24">
+            <HomepageSection
+              mainHeader="Matano lets you own your security data"
+              subHeader="And be free from vendor lock-in"
+              img={
+                <img
+                  src={cover1}
+                  alt="Query data in Matano from query engines like Snowflake, Athena, BigQuery, Spark, and Trino"
+                />
+              }
+              isImgFirst
+            >
+              <p>
+                Cybersecurity vendors lock your data in proprietary formats that make it difficult to use
+                outside of their products.
+              </p>
 
-            <p>
-              Matano takes a different approach by building around an open security data lake that you own.
-            </p>
+              <p>
+                Matano takes a different approach by building around an open security data lake that you own.
+              </p>
 
-            <p>
-              With Matano, all your data is stored in open format Apache Iceberg tables that can can be directly
-              queried from different tools (Amazon Athena, Snowflake, Spark etc.) without having to copy any data.
-            </p>
-          </HomepageSection>
+              <p>
+                With Matano, all your data is stored in open format Apache Iceberg tables that can can be
+                directly queried from different tools (Amazon Athena, Snowflake, Spark etc.) without having to
+                copy any data.
+              </p>
+            </HomepageSection>
 
-          <HomepageSection
-            mainHeader="Write advanced detections as code"
-            subHeader="Correlate and alert on threats in realtime."
-            img={<img className="rounded-xl" src={cover2} alt="An example Matano Python detection on Zeek data checking for a Windows service changed remotely" />}
-          >
-            <p>
-              Matano gives you the complete flexibility of Python code to build high-fidelity detections that
-              capture threats in realtime.
-            </p>
+            <HomepageSection
+              mainHeader="Write advanced detections as code"
+              subHeader="Correlate and alert on threats in realtime."
+              img={
+                <img
+                  className="rounded-xl"
+                  src={cover2}
+                  alt="An example Matano Python detection on Zeek data checking for a Windows service changed remotely"
+                />
+              }
+            >
+              <p>
+                Matano gives you the complete flexibility of Python code to build high-fidelity detections
+                that capture threats in realtime.
+              </p>
 
-            <p>
-              Build stateful alerts to assess entity-risk over time or combine signals using scheduled SQL
-              detections.
-            </p>
+              <p>
+                Build stateful alerts to assess entity-risk over time or combine signals using scheduled SQL
+                detections.
+              </p>
 
-            <p>
-              Alerting rules in Matano are designed to be tested, reviewed, and incrementally hardened,
-              resulting in a drastic reduction of false-positives compared to traditional SIEM.
-            </p>
-          </HomepageSection>
+              <p>
+                Alerting rules in Matano are designed to be tested, reviewed, and incrementally hardened,
+                resulting in a drastic reduction of false-positives compared to traditional SIEM.
+              </p>
+            </HomepageSection>
 
-          <HomepageSection
-            mainHeader="Enrich, transform, normalize"
-            subHeader="From unstructured logs to a powerful security data lake"
-            img={<img className="rounded-xl" src={cover3} alt="An example Matano log transformation script normalizing Cloudtrail logs using Vector Remap language" />}
-          >
-            <p>
-             Matano includes a serverless log transformation pipeline allowing for Vector Remap Language (VRL) scripting to easily normalize & enrich raw
-              security logs without maintaining any servers (goodbye Logstash).
-            </p>
-            <p>
-              Matano provides dozens of managed log sources to easily ingest security logs from popular cloud, host, and SaaS tools
-              using pre-built parsers and integrations.
-            </p>
-            <p>
-              With native support for the Elastic Common Schema, Matano enables enhanced correlation and bulk
-              search for indicators across your security data lake.
-            </p>
-          </HomepageSection>
+            <HomepageSection
+              mainHeader="Enrich, transform, normalize"
+              subHeader="From unstructured logs to a powerful security data lake"
+              img={
+                <img
+                  className="rounded-xl"
+                  src={cover3}
+                  alt="An example Matano log transformation script normalizing Cloudtrail logs using Vector Remap language"
+                />
+              }
+            >
+              <p>
+                Matano includes a serverless log transformation pipeline allowing for Vector Remap Language
+                (VRL) scripting to easily normalize & enrich raw security logs without maintaining any servers
+                (goodbye Logstash).
+              </p>
+              <p>
+                Matano provides dozens of managed log sources to easily ingest security logs from popular
+                cloud, host, and SaaS tools using pre-built parsers and integrations.
+              </p>
+              <p>
+                With native support for the Elastic Common Schema, Matano enables enhanced correlation and
+                bulk search for indicators across your security data lake.
+              </p>
+            </HomepageSection>
 
-          <HomepageSection
-            mainHeader="Built for petabyte scale"
-            subHeader="Eliminate gaps in your security program and analyze all your
+            <HomepageSection
+              mainHeader="Built for petabyte scale"
+              subHeader="Eliminate gaps in your security program and analyze all your
           data."
-          >
-            <p className="md:flex-1">
-              With Matano, you can confidently analyze and store all your data without worrying about a cost
-              prohibitive bill.
-            </p>
+            >
+              <p className="md:flex-1">
+                With Matano, you can confidently analyze and store all your data without worrying about a cost
+                prohibitive bill.
+              </p>
 
-            <p className="md:flex-1">
-              Matano's security data lake architecture uses the latest technologies in Big Data from Apache Arrow
-              and Iceberg to Rust, and is built on foundational, predictable cloud services like S3, Lambda,
-              and SQS.
-            </p>
-          </HomepageSection>
-        </div>
+              <p className="md:flex-1">
+                Matano's security data lake architecture uses the latest technologies in Big Data from Apache
+                Arrow and Iceberg to Rust, and is built on foundational, predictable cloud services like S3,
+                Lambda, and SQS.
+              </p>
+            </HomepageSection>
+          </div>
 
-        <HomepageFeatures />
+          <HomepageFeatures />
 
-        <section className="pt-10 md:pt-20 px-6 md:px-12" style={{ width: "100%" }}>
-          <CtaFooter />
-        </section>
-      </main>
+          <section className="pt-10 md:pt-20 px-6 md:px-12" style={{ width: "100%" }}>
+            <CtaFooter />
+          </section>
+        </main>
       </LightTheme>
     </Layout>
   );

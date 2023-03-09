@@ -13,6 +13,7 @@ To get started with the Google Workspace managed log source, follow these steps:
 - Have an existing administrator account.
 - [Create a service account](https://support.google.com/workspacemigrate/answer/9222993?hl=en) using the administrator account.
 - [Authorize access to the Admin SDK API](https://support.google.com/workspacemigrate/answer/10839762#zippy=%2Cstep-authorize-your-client-id) for the ServiceAccount.
+  - You will need to authorize the following OAuth scopes: https://www&#46;googleapis.com/auth/admin.reports.audit.readonly, https://www&#46;googleapis.com/auth/apps.alerts
 - [Enable domain-wide Delegation](https://developers.google.com/workspace/guides/create-credentials#optional_set_up_domain-wide_delegation_for_a_service_account) for your service account.
 - Note your administrator email, service account email, and the private key for your credentials.
 
@@ -57,6 +58,7 @@ The Google Workspace managed log source supports the following tables:
 | :--------: | :--------: | :----------------------------------------------------------------------------------: |
 | [Login][1] |  `login`   |                  Track sign-in activity from users to your domain.                   |
 | [Admin][2] |  `admin`   | Information on the Admin console activities of all of your account's administrators. |
+| [Alert][4] |  `alert`   |        Alerts from Google Workspace Alert Center on potential security issues        |
 
 </div>
 
@@ -66,6 +68,8 @@ The Google Workspace managed log source supports the following tables:
 
 Matano integrates with your Google Workspace account to automatically pull relevant logs on a regular basis (every 1 min).
 
+Google Workspace data has [documented delays/lag times](https://support.google.com/a/answer/7061566?hl=en) that vary per table, Matano takes care of ensuring the source is being polled with the appropriate lag time.
+
 ## Schema
 
 Google Workspace event data is normalized to ECS fields. Custom fields are normalized into the `google_workspace` field. You can view the [complete mapping][3] to see the full schema.
@@ -73,3 +77,4 @@ Google Workspace event data is normalized to ECS fields. Custom fields are norma
 [1]: https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-login
 [2]: https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-admin
 [3]: https://github.com/matanolabs/matano/blob/main/data/managed/log_sources/google_workspace/tables/
+[4]: https://developers.google.com/admin-sdk/alertcenter/guides

@@ -1,6 +1,8 @@
 ---
 title: A deep dive into Amazon Athena Engine version 3
 authors: "samrose"
+keywords: ["athena", "aws", "amazon", "big data"]
+tags: ["engineering"]
 ---
 
 AWS launched the latest version of their Amazon Athena query engine — Athena engine version 3 at last year's re:Invent. The new engine version includes many exciting new features and improvements, including improved Apache Iceberg support & performance, new statements and functions, and other features. Let's explore some of these improvements and how you can use them with Matano.

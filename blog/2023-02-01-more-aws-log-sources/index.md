@@ -2,6 +2,7 @@
 title: Matano now supports 10+ AWS managed log sources
 authors: "samrose"
 keywords: ["aws", "security", "cloud", "s3"]
+tags: ["announcement"]
 image: ./sg.png
 ---
 

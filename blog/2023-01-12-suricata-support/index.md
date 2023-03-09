@@ -2,6 +2,7 @@
 title: Adding Suricata Support to Matano
 authors: "shaeq"
 keywords: ["suricata", "falcon", "network security", "network", "hosts", "nids", "ids", "nips", "ips"]
+tags: ["announcement"]
 image: ./sg.png
 ---
 

@@ -2,6 +2,7 @@
 title: Adding Crowdstrike Support to Matano
 authors: "shaeq"
 keywords: ["crowdstrike", "falcon", "endpoint security", "network", "hosts"]
+tags: ["announcement"]
 image: ./sg.png
 ---
 

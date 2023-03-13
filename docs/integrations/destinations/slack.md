@@ -40,7 +40,7 @@ properties:
 
 1) **[Login to Slack](https://slack.com/signin)** using an admin account.
 
-2) Under the **"[Your Apps](https://slack.com/signin)"** page in Slack click **"Create New App"**.
+2) Under the **"[Your Apps](https://api.slack.com/apps)"** page in Slack click **"Create New App"**.
 
 3) When prompted with the **"Create an app"** dialog, select the option **"From an app manifest"**
 

@@ -25,7 +25,7 @@ const Waitlist = (props: any) => {
       <div className={baseCls}>
         <div>
           <div className="text-lg text-slate-700 font-medium">
-            We're building a fully managed cloud SIEM alternative.
+            We're building a modern cloud native SIEM.
           </div>
           <div className="text-2xl mt-1">
             Join the waitlist for <strong className="text-blue-600">Matano Cloud.</strong>{" "}

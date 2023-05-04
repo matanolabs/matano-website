@@ -41,7 +41,38 @@ ingest:
     key_prefix: "my_key/mypath"
 ```
 
-If you are bringing your own bucket, you need to ensure that you have correctly set up permissions on the bucket for Matano to be able to access it.
+#### Bring your own bucket S3 permissions
+
+If you are bringing your own bucket, you need to ensure that you have correctly set up permissions on the bucket for Matano to be able to access it. Here is a sample S3 bucket policy you can use to grant Matano access to your bucket.
+
+```json
+{
+    "Statement": {
+        "Effect": "Allow",
+        "Action": [
+            "s3:GetObject",
+            "s3:GetBucketNotificationConfiguration",
+            "s3:PutBucketNotificationConfiguration"
+        ],
+        "Principal": {
+            "AWS": "<MATANO-ACCOUNT>"
+        },
+        "Condition":{
+             "StringEquals": {
+                 "aws:PrincipalTag/matano:managed": "true"
+             }
+        }
+     }
+}
+```
+
+#### Ingesting from a bucket with KMS encryption
+
+To allow Matano to ingest data from a bucket with KMS encryption, in addition to setting the S3 bucket policy, add a tag on your KMS Key as follows:
+
+```
+matano:trusted=true
+```
 
 #### Using a key pattern to match non consecutive key patterns
 
@@ -61,14 +92,6 @@ ingest:
 A wildcard is used to match the account ID as part of the key pattern to the log source.
 
 To specify minimum IAM identity permissions, Matano will continue to use the `key_prefix` configuration. If no `key_prefix` is provided, permission to read all objects in the source bucket will added to the identity policy.
-
-#### Ingesting from a bucket with KMS encryption
-
-To allow Matano to ingest data from a bucket with KMS encryption, in addition to setting the resource based policy, add a tag on your KMS Key as follows:
-
-```
-matano:trusted=true
-```
 
 This will allow the Matano system identity based policy to be able to decrypt ingestion data.
 

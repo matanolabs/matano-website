@@ -72,7 +72,6 @@ const SubscribeForm = () => {
         onClick={(e) => {
           e.preventDefault();
           handleSubmit(fields);
-          console.log("done!");
         }}
       >
         Join the Waitlist

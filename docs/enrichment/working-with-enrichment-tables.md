@@ -49,7 +49,7 @@ The data file must be named `data.json` and be in JSON lines format.
 
 ### Dynamic enrichment tables
 
-To write data to a dynamic enrichment table, upload data to the Matano provided sources S3 bucket the same [way you can for log sources](../log-sources/ingestion.md#using-the-matano-provided-sources-bucket). Upload data to the prefix of the enrichment table name, prefixed with `enrich_`. For example, to upload data to an enrichment table named `user_info`, upload data to the S3 prefix `enrich_user_info/`. Data uploaded must be in JSON lines format.
+To write data to a dynamic enrichment table, upload data to the Matano provided sources S3 bucket the same [way you can for log sources](../log-sources/ingestion/s3.md#using-the-matano-provided-sources-bucket). Upload data to the prefix of the enrichment table name, prefixed with `enrich_`. For example, to upload data to an enrichment table named `user_info`, upload data to the S3 prefix `enrich_user_info/`. Data uploaded must be in JSON lines format.
 
 ## Updating enrichment table data
 

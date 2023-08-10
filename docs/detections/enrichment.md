@@ -15,7 +15,7 @@ To access an enrichment table inside a Python detection, you can simply import t
 ```python
 # detect.py
 
-from matano.enrichment import user_info
+from detection.enrichment import user_info
 
 def detect(e):
     ...
@@ -26,7 +26,7 @@ The import statement in the first line imports our enrichment table. We can also
 ```python
 # detect.py
 
-from matano.enrichment import user_info, host_info
+from detection.enrichment import user_info, host_info
 
 def detect(e):
     ...
@@ -41,7 +41,7 @@ To lookup data by a key in your detection script, you can use the `.get` method 
 ```python
 # detect.py
 
-from matano.enrichment import user_info
+from detection.enrichment import user_info
 
 def detect(e):
     user_id = e.deepget("user.id")
@@ -69,7 +69,7 @@ We can then use this enrichment table in our detection as follows:
 ```python
 # detect.py
 
-from matano.enrichment import user_info
+from detection.enrichment import user_info
 
 def detect(e):
     user_id = e.deepget("user.id")

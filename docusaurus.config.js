@@ -201,23 +201,6 @@ const config = {
             ],
           },
           {
-            title: "Product",
-            items: [
-              {
-                label: "Elastic alternative",
-                href: "/alternative-to/elastic",
-              },
-              {
-                label: "Panther alternative",
-                href: "/alternative-to/panther",
-              },
-              {
-                label: "SIEM alternative",
-                href: "/alternative-to/siem",
-              },
-            ],
-          },
-          {
             title: "Company",
             items: [
               {

@@ -84,6 +84,7 @@ const config = {
     },
     {
       tagName: "script",
+      attributes: {},
       innerHTML: `if (!window.location.pathname.startsWith("/docs")) {
         window.location.href = "https://matanosecurity.com";
       }`,

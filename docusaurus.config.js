@@ -81,6 +81,12 @@ const config = {
       tagName: 'script',
       attributes: {id: "mcjs"},
       innerHTML: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/9ae6754442e0e3ac2d76a9f10/f2ff75d3ae22ede38169d2959.js");`,
+    },
+    {
+      tagName: "script",
+      innerHTML: `if (!window.location.pathname.startsWith("/docs")) {
+        window.location.href = "https://matanosecurity.com";
+      }`,
     }
   ],
   plugins: [

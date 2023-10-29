@@ -2,6 +2,11 @@
     "cleanUrls": true,
     "redirects": [
         {
+            "source": "/",
+            "destination": "https://matanosecurity.com",
+            "permanent": true
+        },
+        {
             "source": "/docs/log-sources/managed-log-sources/:path*",
             "destination": "/docs/log-sources/managed/:path*",
             "permanent": false

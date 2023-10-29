@@ -201,10 +201,6 @@ const config = {
           {
             title: "Resources",
             items: [
-              {
-                label: "FAQs",
-                to: "/faqs",
-              },
               // {
               //   label: "What is a security data lake?",
               //   to: "/what-is-a-security-data-lake",

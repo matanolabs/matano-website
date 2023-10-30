@@ -86,11 +86,20 @@ const config = {
       tagName: "script",
       attributes: {},
       innerHTML: `
+      function addNoindexMetaTag() {
+        var metaTag = document.createElement('meta');
+        metaTag.name = 'robots';
+        metaTag.content = 'noindex';
+        var head = document.head || document.getElementsByTagName('head')[0];
+        head.appendChild(metaTag);
+      }
       if (window.location.pathname.startsWith("/blog")) {
         window.location.href = "https://matanosecurity.com/blog";
+        addNoindexMetaTag();
       }
       if (!window.location.pathname.startsWith("/docs")) {
         window.location.href = "https://matanosecurity.com";
+        addNoindexMetaTag();
       }`,
     }
   ],

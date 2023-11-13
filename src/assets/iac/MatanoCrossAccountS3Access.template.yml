@@ -205,7 +205,7 @@ Resources:
           	except Exception as J:print('send(..) failed executing request.urlopen(..): '+str(J))
           def create_matano_sns_topic_if_not_exists(bucket,master_account_id,account_id,region):
           	I='Allow';H='Resource';G='Action';F='Principal';E='Effect';D='Sid';B=region;J=boto3.client('sns',region_name=B);C='matano-s3-notifications';A=f"arn:aws:sns:{B}:{account_id}:{C}"
-          	try:J.create_topic(Name=C,Attributes={'Policy':json.dumps({'Version':'2012-10-17','Statement':[{D:'0',E:I,F:{'Service':'s3.amazonaws.com'},G:'SNS:Publish',H:A,'Condition':{'ArnLike':{'aws:SourceArn':f"arn:aws:s3:::{bucket}"}}},{D:'GrantAutomationAccess',E:I,F:{'AWS':f"arn:aws:iam::{master_account_id}:root"},G:['SNS:Subscribe','SNS:ListSubscriptionsByTopic'],H:A}]})});print(f"Created topic {A}")
+          	try:J.create_topic(Name=C,Attributes={'Policy':json.dumps({'Version':'2012-10-17','Statement':[{D:'0',E:I,F:{'Service':'s3.amazonaws.com'},G:'SNS:Publish',H:A,'Condition':{'StringEquals':{'aws:SourceAccount':account_id}}},{D:'GrantAutomationAccess',E:I,F:{'AWS':f"arn:aws:iam::{master_account_id}:root"},G:['SNS:Subscribe','SNS:ListSubscriptionsByTopic'],H:A}]})});print(f"Created topic {A}")
           	except Exception as K:
           		if _C not in str(K):raise
           		print(f"SNS topic {A} already exists w/ different attributes, skipping creation")
